@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-extension-manifest.schema.json",
+  "id": "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc",
+  "alias": "TopNavigationApplicationCustomizer",
+  "componentType": "Extension",
+  "extensionType": "ApplicationCustomizer",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "safeWithCustomScript": false,
+  "servedFromLocalhost": true,
+  "title": {
+    "default": "Top Navigation"
+  },
+  "description": {
+    "default": "Custom top navigation with permission-based targeting"
+  }
+}

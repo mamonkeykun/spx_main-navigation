@@ -1,0 +1,29 @@
+{
+  "extends": "./node_modules/@microsoft/rush-stack-compiler-4.7/includes/tsconfig-web.json",
+  "compilerOptions": {
+    "target": "ES2019",
+    "forceConsistentCasingInFileNames": true,
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "declaration": true,
+    "sourceMap": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "jsx": "react",
+    "lib": ["es2019", "dom"],
+    "outDir": "lib",
+    "typeRoots": ["./node_modules/@types", "./node_modules/@microsoft"]
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "node_modules",
+    "lib",
+    "dist",
+    "sharepoint",
+    "**/*.test.ts",
+    "**/*.test.tsx"
+  ]
+}

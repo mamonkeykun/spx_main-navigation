@@ -1,0 +1,44 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "spfx-top-navigation-client-side-solution",
+    "id": "ceb2e4a0-d37e-4c7c-bf68-3997a89de5e9",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true,
+    "isDomainIsolated": false,
+    "developer": {
+      "name": "",
+      "websiteUrl": "",
+      "privacyUrl": "",
+      "termsOfUseUrl": "",
+      "mpnId": "Undefined-1.20.0"
+    },
+    "metadata": {
+      "shortDescription": {
+        "default": "SPFx Top Navigation with targeting"
+      },
+      "longDescription": {
+        "default": "Application Customizer and Settings Web Part for custom SharePoint navigation"
+      },
+      "screenshotPaths": [],
+      "videoUrl": "",
+      "categories": []
+    },
+    "features": [
+      {
+        "title": "spfx-top-navigation Feature",
+        "description": "Installs the Top Navigation Application Customizer and Settings Web Part",
+        "id": "3c49e171-418f-4b31-8b8b-4e54397d63cc",
+        "version": "1.0.0.0",
+        "componentIds": [
+          "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc",
+          "8974e9a7-87e4-48c8-998d-6be14f15713b"
+        ]
+      }
+    ]
+  },
+  "paths": {
+    "zippedPackage": "solution/spfx-top-navigation.sppkg"
+  }
+}

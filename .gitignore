@@ -1,0 +1,8 @@
+node_modules
+lib
+dist
+sharepoint/solution/*.sppkg
+temp
+.env.local
+coverage
+*.log
