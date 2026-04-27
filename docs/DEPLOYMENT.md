@@ -114,3 +114,27 @@ Review the group names for the target site before running the permission command
 Rollback note:
 
 - Removing the package stops future loads of the extension, but any site configuration data in the `Navigation` list and `OrigamiNavConfig` property remains until explicitly removed.
+
+## スクリプトを使った展開
+
+前提条件:
+
+```powershell
+Install-Module PnP.PowerShell -Scope CurrentUser
+```
+
+使用順序:
+
+1. `.sppkg` をビルドして App Catalog にアップロードする
+2. 各対象サイトで `provision-navigation-list.ps1` を実行する
+3. 各対象サイトで `install-customizer.ps1` を実行する
+4. 各サイトの管理ページに Settings Web パーツを追加する
+
+使用例:
+
+```powershell
+.\scripts\provision-navigation-list.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet"
+.\scripts\install-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "00000000-0000-0000-0000-000000000000"
+.\scripts\install-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "00000000-0000-0000-0000-000000000000" -Tenant
+.\scripts\remove-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "00000000-0000-0000-0000-000000000000"
+```

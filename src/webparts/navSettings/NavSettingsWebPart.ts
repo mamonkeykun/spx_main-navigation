@@ -1,16 +1,13 @@
 import * as React from 'react';
 import * as ReactDom from 'react-dom';
-
 import { BaseClientSideWebPart } from '@microsoft/sp-webpart-base';
+import NavSettingsApp from './components/NavSettingsApp';
 
 export interface INavSettingsWebPartProps {}
 
 export default class NavSettingsWebPart extends BaseClientSideWebPart<INavSettingsWebPartProps> {
   public render(): void {
-    ReactDom.render(
-      React.createElement('div', { id: 'spfx-nav-settings-root' }, 'Loading...'),
-      this.domElement
-    );
+    ReactDom.render(React.createElement(NavSettingsApp, { context: this.context }), this.domElement);
   }
 
   protected onDispose(): void {
@@ -18,8 +15,10 @@ export default class NavSettingsWebPart extends BaseClientSideWebPart<INavSettin
   }
 
   protected getPropertyPaneConfiguration() {
-    return {
-      pages: [],
-    };
+    return { pages: [] };
+  }
+
+  protected get disableReactivePropertyChanges(): boolean {
+    return true;
   }
 }

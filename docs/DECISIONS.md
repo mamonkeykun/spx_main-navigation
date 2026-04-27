@@ -132,3 +132,174 @@ Do not use barrel files such as `index.ts`; import directly from concrete module
 - Import paths are slightly longer but explicit.
 - Circular dependency risk is reduced.
 - Refactors require more direct import updates when files move.
+
+## ADR-008: HTML5 drag and drop over an external DnD library
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+The navigation manager needs drag-to-reorder behavior inside SPFx, but the project rules prohibit adding dependencies without approval and the admin UI does not require a complex cross-list drag system.
+
+### Decision
+
+Use the native HTML5 Drag and Drop API for item reordering instead of adding a dedicated drag-and-drop library.
+
+### Consequences
+
+- The solution avoids a new bundle dependency in the admin surface.
+- Reorder behavior stays limited to the current item list, which matches the current requirement.
+- Advanced accessibility and cross-device drag behavior remain simpler than a full DnD framework.
+
+## ADR-009: Auto-save with debounce over an explicit Save button
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+The settings panel edits a singleton configuration object where most changes should feel immediate, but some fields such as URLs and colors produce noisy writes if persisted on every keystroke.
+
+### Decision
+
+Persist settings automatically and debounce text-like inputs instead of requiring a separate Save button.
+
+### Consequences
+
+- The admin flow is faster because common changes save inline.
+- Debounce reduces unnecessary property bag writes for rapidly changing inputs.
+- Save-state feedback remains necessary because persistence is implicit rather than user-triggered.
+
+## ADR-010: Panel for permission editing instead of a dialog
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+Permission targeting needs a group list that can grow vertically and may require repeated open/save cycles while the admin keeps the main manager context visible.
+
+### Decision
+
+Render permission editing in a slide-in `Panel` instead of a modal dialog.
+
+### Consequences
+
+- The group checklist has more vertical space than a dialog would comfortably provide.
+- The admin can preserve spatial context in the navigation manager while editing permissions.
+- The UI introduces one more surface state to manage in the settings app.
+
+## ADR-011: HTML5 focus trap for the mobile drawer
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+The mobile drawer needs keyboard-safe focus containment, but the project should avoid pulling in a separate focus-trap library for a single overlay surface.
+
+### Decision
+
+Use a small HTML and keyboard-event based focus loop inside `MobileDrawer` rather than adding an external package.
+
+### Consequences
+
+- The drawer remains keyboard navigable and self-contained.
+- The implementation stays dependency-free and easy to audit.
+- Focus management remains intentionally scoped to the drawer rather than becoming a shared modal framework.
+
+## ADR-012: Promise.race for cross-site timeout handling
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+Cross-site navigation needs a deterministic timeout and fallback path, but the data hook already relies on PnPjs fluent calls rather than a raw `fetch` pipeline.
+
+### Decision
+
+Use `Promise.race` with a timeout promise to detect slow cross-site reads and trigger a local-site fallback.
+
+### Consequences
+
+- Timeout handling stays explicit in the hook without deeper PnPjs cancellation wiring.
+- The user gets a targeted timeout message and the nav can still render from the local site.
+- The remote request is not actively aborted; the timeout only controls the hook’s awaited result.
+
+## ADR-013: Case-sensitive group matching for LoginName checks
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+SharePoint targeting values are stored as raw `LoginName` strings, and normalizing casing in the runtime could hide data issues or diverge from what SharePoint actually returns.
+
+### Decision
+
+Keep `allowedGroups` matching case-sensitive.
+
+### Consequences
+
+- Runtime behavior mirrors stored SharePoint `LoginName` values directly.
+- Tests can document exact matching semantics for support and admin troubleshooting.
+- Admins must store the correct casing in `NavAllowedGroups` data.
+
+## ADR-014: Breadcrumb reads visible folders from a local React context
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+The breadcrumb component must render the parent folder label, but its public prop contract only accepts `items` and `fontSize`.
+
+### Decision
+
+Provide the visible folder structure from `TopNav` through a local React context consumed by `Breadcrumb`.
+
+### Consequences
+
+- The breadcrumb keeps the requested narrow prop surface.
+- Folder labels stay aligned with the filtered nav actually being rendered.
+- `TopNav` owns one extra provider boundary for runtime nav state.
+
+## ADR-015: Language picker uses a temporary `lang` query parameter redirect
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+The runtime component contract requires `LanguagePicker` selection to trigger navigation, but the exact SharePoint multilingual switch flow is not yet wired into the Application Customizer.
+
+### Decision
+
+Use a temporary redirect that appends or updates a `lang` query parameter in the current page URL.
+
+### Consequences
+
+- Language selection is observable and testable in the runtime UI.
+- The implementation stays isolated to the customizer until the SharePoint-native switch flow is added.
+- NAV work that integrates the real multilingual endpoint must replace this interim behavior.
+
+## ADR-016: Empty folders render as non-dropdown labels
+
+Date: 2026-04-27  
+Status: Accepted
+
+### Context
+
+The shared `NavFolder` type does not expose a URL, but the runtime still needs to render empty folders without inventing unsupported destination data.
+
+### Decision
+
+Render empty folders as top-level labels that do not open a dropdown.
+
+### Consequences
+
+- The UI remains faithful to the current data model.
+- Empty folders do not trigger broken or fabricated links.
+- If clickable empty folders are required later, the shared type contract must be extended first.

@@ -1,0 +1,28 @@
+.wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-family: var(--nav-font-family);
+  font-size: var(--nav-font-size);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.trigger:hover,
+.trigger:focus-visible,
+.triggerOpen {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--nav-hover);
+  outline: none;
+}
+
+.triggerOpen {
+  color: var(--nav-accent);
+}

@@ -1,0 +1,27 @@
+.link {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  color: var(--nav-text);
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.link:hover,
+.link:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--nav-hover);
+  outline: none;
+}
+
+.label {
+  font-size: var(--nav-font-size);
+  font-weight: 500;
+}
+
+.description {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-top: 2px;
+}

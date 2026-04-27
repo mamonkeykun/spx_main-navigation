@@ -1,0 +1,62 @@
+.picker {
+  position: relative;
+}
+
+.trigger {
+  background: none;
+  border: none;
+  color: var(--nav-text);
+  font-family: var(--nav-font-family);
+  font-size: var(--nav-font-size);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.trigger:hover,
+.trigger:focus-visible {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--nav-hover);
+  outline: none;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  left: auto;
+  background: var(--nav-bg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 8px;
+  min-width: 140px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  z-index: 1001;
+}
+
+.langItem {
+  list-style: none;
+}
+
+.langButton {
+  width: 100%;
+  text-align: left;
+  border: none;
+  background: none;
+  color: var(--nav-text);
+  padding: 8px 12px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.langButton:hover,
+.langButton:focus-visible {
+  background: rgba(255, 255, 255, 0.08);
+  outline: none;
+}
+
+.active {
+  font-weight: 500;
+  color: var(--nav-accent);
+}

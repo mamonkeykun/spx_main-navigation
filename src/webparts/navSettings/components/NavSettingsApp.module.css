@@ -1,0 +1,11 @@
+.app {
+  padding: 24px;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 24px;
+  color: #323130;
+}
