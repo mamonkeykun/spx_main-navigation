@@ -1,4 +1,5 @@
-import { renderHook, waitFor, act } from '@testing-library/react';
+import { waitFor, act } from '@testing-library/react';
+import { renderHook } from '@testing-library/react-hooks';
 import { useNavData } from './useNavData';
 
 const usingMock = jest.fn();
@@ -239,23 +240,21 @@ describe('useNavData', () => {
     jest.useFakeTimers();
 
     selectMock
-      .mockImplementationOnce(
-        () =>
-          jest.fn(
-            () =>
-              new Promise(() => {
-                return undefined;
-              })
-          )
+      .mockImplementationOnce(() =>
+        jest.fn(
+          () =>
+            new Promise(() => {
+              return undefined;
+            })
+        )
       )
-      .mockImplementationOnce(
-        () =>
-          jest.fn(
-            () =>
-              new Promise(() => {
-                return undefined;
-              })
-          )
+      .mockImplementationOnce(() =>
+        jest.fn(
+          () =>
+            new Promise(() => {
+              return undefined;
+            })
+        )
       );
     mockSelectResult([]);
     mockSelectResult([
