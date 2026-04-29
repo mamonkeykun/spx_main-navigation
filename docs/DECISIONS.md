@@ -238,6 +238,32 @@ Status: Accepted
 SharePoint targeting values are stored as raw `LoginName` strings, and normalizing casing in the runtime could hide data issues or diverge from what SharePoint actually returns.
 
 ### Decision
+Use case-sensitive string comparison for group membership checks.
+
+### Consequences
+
+- Runtime behavior matches the exact values returned by SharePoint.
+- Administrators must enter targeting values with the expected casing.
+- Mismatches surface as data-quality issues instead of being silently normalized.
+
+## ADR-014: Auto-provision the Navigation list on first 404
+
+Date: 2026-04-29  
+Status: Accepted
+
+### Context
+
+The navigation hook can run on sites where the `Navigation` list has not been provisioned yet. Treating that state as a generic fetch failure prevents first-run recovery and leaves the UI in an avoidable error state.
+
+### Decision
+
+When navigation data loading receives a 404 for the `Navigation` list, attempt to create the list and required fields automatically, then return empty navigation data instead of surfacing a generic read error.
+
+### Consequences
+
+- New or partially configured sites can recover without manual list creation.
+- A failed provisioning attempt still surfaces a targeted admin-facing error message.
+- The hook now treats missing-list 404 responses as a recoverable bootstrap condition rather than a terminal fetch error.
 
 Keep `allowedGroups` matching case-sensitive.
 

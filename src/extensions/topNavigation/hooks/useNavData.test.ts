@@ -1,6 +1,8 @@
+import { beforeEach, describe, expect, it, jest } from '@jest/globals';
 import { waitFor, act } from '@testing-library/react';
 import { renderHook } from '@testing-library/react-hooks';
 import { useNavData } from './useNavData';
+import { provisionNavList } from '../utils/provisionNavList';
 
 const usingMock = jest.fn();
 const spfiMock = jest.fn();
@@ -13,6 +15,7 @@ function mockSelectResult(value: unknown): void {
 }
 
 function mockSelectError(error: Error): void {
+  selectMock.mockImplementationOnce(() => jest.fn().mockRejectedValue(error));
   selectMock.mockImplementationOnce(() => jest.fn().mockRejectedValue(error));
 }
 
@@ -30,6 +33,14 @@ jest.mock('@pnp/sp/presets/all', () => ({
   SPFx: jest.fn(() => 'spfx-behavior'),
 }));
 
+jest.mock('../utils/provisionNavList', () => ({
+  provisionNavList: jest.fn(),
+}));
+
+const provisionNavListMock = provisionNavList as unknown as {
+  mockResolvedValue: (value: undefined) => void;
+};
+
 describe('useNavData', () => {
   const context = {
     pageContext: {
@@ -42,6 +53,7 @@ describe('useNavData', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     jest.useRealTimers();
+    provisionNavListMock.mockResolvedValue(undefined);
 
     filterMock.mockReturnValue({
       select: selectMock,
@@ -292,5 +304,18 @@ describe('useNavData', () => {
         openInNewTab: false,
       },
     ]);
+  });
+
+  it('returns empty arrays after successful auto-provision on a 404 response', async () => {
+    mockSelectError(createHttpError(404, '404 not found'));
+
+    const { result } = renderHook(() => useNavData(context));
+
+    await waitFor(() => expect(result.current.loading).toBe(false));
+
+    expect(provisionNavList).toHaveBeenCalledTimes(1);
+    expect(result.current.folders).toEqual([]);
+    expect(result.current.items).toEqual([]);
+    expect(result.current.error).toBeNull();
   });
 });

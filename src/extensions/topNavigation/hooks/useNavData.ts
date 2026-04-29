@@ -4,6 +4,7 @@ import { SPFx } from '@pnp/sp/presets/all';
 import '@pnp/sp/presets/all';
 import type { SpfxContext } from '../../../shared/spfxContext';
 import type { NavFolder, NavItem } from '../types/navTypes';
+import { provisionNavList } from '../utils/provisionNavList';
 
 const NAVIGATION_LIST_TITLE = 'Navigation';
 
@@ -78,6 +79,14 @@ function getErrorCode(caughtError: unknown): number | undefined {
 
   const maybeStatus = (caughtError as { status?: unknown }).status;
   return typeof maybeStatus === 'number' ? maybeStatus : undefined;
+}
+
+function isNotFoundError(caughtError: unknown): boolean {
+  if (getErrorCode(caughtError) === 404) {
+    return true;
+  }
+
+  return caughtError instanceof Error && caughtError.message.includes('404');
 }
 
 function sortNavItems<T extends { order: number; title: string }>(items: T[]): T[] {
@@ -212,6 +221,31 @@ export function useNavData(
         if (sourceUrl && getErrorCode(caughtError) === 403) {
           setError('参照先サイトへのアクセス権限がありません');
           return;
+        }
+
+        if (isNotFoundError(caughtError)) {
+          try {
+            // DECISION: A missing Navigation list is recoverable, so the hook provisions the schema once and returns empty data.
+            await provisionNavList(sp);
+
+            if (!isActive) {
+              return;
+            }
+
+            setFolders([]);
+            setItems([]);
+            setError(null);
+            return;
+          } catch {
+            if (!isActive) {
+              return;
+            }
+
+            setError(
+              'Navigationリストの作成に失敗しました。サイト管理者に連絡してください。'
+            );
+            return;
+          }
         }
 
         const message =
