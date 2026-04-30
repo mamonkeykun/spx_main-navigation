@@ -1,0 +1,53 @@
+{
+  "id": "8974e9a7-87e4-48c8-998d-6be14f15713b",
+  "alias": "NavSettingsWebPart",
+  "componentType": "WebPart",
+  "version": "1.0.0",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "safeWithCustomScript": false,
+  "servedFromLocalhost": true,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "Advanced"
+      },
+      "title": {
+        "default": "Navigation Settings"
+      },
+      "description": {
+        "default": "Configure the Top Navigation appearance and items"
+      },
+      "officeFabricIconFontName": "Nav",
+      "properties": {}
+    }
+  ],
+  "loaderConfig": {
+    "internalModuleBaseUrls": [
+      "<!-- PATH TO DEPLOY SHAREPOINT ASSETS -->"
+    ],
+    "entryModuleId": "nav-settings-web-part",
+    "scriptResources": {
+      "nav-settings-web-part": {
+        "type": "path",
+        "path": "nav-settings-web-part.js"
+      },
+      "react": {
+        "type": "component",
+        "id": "0d910c1c-13b9-4e1c-9aa4-b008c5e42d7d",
+        "version": "17.0.1"
+      },
+      "react-dom": {
+        "type": "component",
+        "id": "aa0a46ec-1505-43cd-a44a-93f3a5aa460a",
+        "version": "17.0.1"
+      },
+      "@microsoft/sp-webpart-base": {
+        "type": "component",
+        "id": "974a7777-0990-4136-8fa6-95d80114c2e0",
+        "version": "1.20.0"
+      }
+    }
+  }
+}

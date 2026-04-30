@@ -1,45 +1,55 @@
+import * as React from 'react';
+import { act, render, waitFor } from '@testing-library/react';
 import { beforeEach, describe, expect, it, jest } from '@jest/globals';
-import { waitFor, act } from '@testing-library/react';
-import { renderHook } from '@testing-library/react-hooks';
 import { useNavData } from './useNavData';
-import { provisionNavList } from '../utils/provisionNavList';
 
 const usingMock = jest.fn();
 const spfiMock = jest.fn();
-const selectMock = jest.fn();
-const filterMock = jest.fn();
 const getByTitleMock = jest.fn();
-
-function mockSelectResult(value: unknown): void {
-  selectMock.mockImplementationOnce(() => jest.fn().mockResolvedValue(value));
+const filterMock = jest.fn();
+const selectMock = jest.fn();
+function createQueryResult(result: unknown): ReturnType<typeof jest.fn> {
+  const query = jest.fn().mockResolvedValue(result) as ReturnType<typeof jest.fn> & {
+    orderBy: ReturnType<typeof jest.fn>;
+  };
+  query.orderBy = jest.fn(() => query);
+  return query;
 }
 
-function mockSelectError(error: Error): void {
-  selectMock.mockImplementationOnce(() => jest.fn().mockRejectedValue(error));
-  selectMock.mockImplementationOnce(() => jest.fn().mockRejectedValue(error));
+function queueQueryResult(result: unknown): void {
+  selectMock.mockImplementationOnce(() => createQueryResult(result));
 }
 
-function createHttpError(status: number, message: string): Error & { status: number } {
-  const error = new Error(message) as Error & { status: number };
-  error.status = status;
-  return error;
+function queueQueryError(error: Error): void {
+  const query = jest.fn().mockRejectedValue(error) as ReturnType<typeof jest.fn> & {
+    orderBy: ReturnType<typeof jest.fn>;
+  };
+  query.orderBy = jest.fn(() => query);
+  selectMock.mockImplementationOnce(() => query);
 }
 
 jest.mock('@pnp/sp', () => ({
   spfi: (...args: unknown[]) => spfiMock(...args),
-}));
-
-jest.mock('@pnp/sp/presets/all', () => ({
   SPFx: jest.fn(() => 'spfx-behavior'),
 }));
 
-jest.mock('../utils/provisionNavList', () => ({
-  provisionNavList: jest.fn(),
-}));
+jest.mock('@pnp/sp/webs', () => ({}));
+jest.mock('@pnp/sp/lists', () => ({}));
+jest.mock('@pnp/sp/items', () => ({}));
+jest.mock('@pnp/sp/folders', () => ({}));
 
-const provisionNavListMock = provisionNavList as unknown as {
-  mockResolvedValue: (value: undefined) => void;
-};
+function renderHook<T>(callback: () => T): { result: { current: T } } {
+  const result = { current: undefined as unknown as T };
+
+  function TestComponent(): React.ReactElement | null {
+    result.current = callback();
+    return React.createElement(React.Fragment);
+  }
+
+  render(React.createElement(TestComponent));
+
+  return { result };
+}
 
 describe('useNavData', () => {
   const context = {
@@ -52,8 +62,6 @@ describe('useNavData', () => {
 
   beforeEach(() => {
     jest.clearAllMocks();
-    jest.useRealTimers();
-    provisionNavListMock.mockResolvedValue(undefined);
 
     filterMock.mockReturnValue({
       select: selectMock,
@@ -76,9 +84,9 @@ describe('useNavData', () => {
     });
   });
 
-  it('returns empty arrays and loading=false when SharePoint returns no rows', async () => {
-    mockSelectResult([]);
-    mockSelectResult([]);
+  it('returns empty arrays when SharePoint returns no rows', async () => {
+    queueQueryResult([]);
+    queueQueryResult([]);
 
     const { result } = renderHook(() => useNavData(context));
 
@@ -89,33 +97,25 @@ describe('useNavData', () => {
     expect(result.current.error).toBeNull();
   });
 
-  it('maps the SharePoint response into NavFolder and NavItem shapes', async () => {
-    mockSelectResult([
+  it('maps folders and items using FileDirRef', async () => {
+    queueQueryResult([
       {
         Id: 10,
-        Title: 'Policies',
+        Title: 'Employee Resources',
+        NavUrl: '/resources',
         NavOrder: 2,
-        NavAllowedGroups: '["HR"]',
+        FileDirRef: '/sites/current/Lists/Navigation/Employee Resources',
       },
     ]);
-    mockSelectResult([
+    queueQueryResult([
       {
         Id: 2,
-        Title: 'Home',
-        NavUrl: '/home',
-        NavDescription: 'Landing page',
+        Title: 'Policies',
+        NavUrl: '/policies',
+        NavDescription: '社内ポリシー',
         NavOrder: 1,
-        NavAllowedGroups: '["Everyone"]',
         NavOpenInNewTab: true,
-      },
-      {
-        Id: 1,
-        Title: 'Leave Policy',
-        NavUrl: '/leave',
-        NavOrder: null,
-        NavFolderId: 10,
-        NavAllowedGroups: 'not-json',
-        NavOpenInNewTab: null,
+        FileDirRef: '/sites/current/Lists/Navigation/Employee Resources',
       },
     ]);
 
@@ -123,61 +123,73 @@ describe('useNavData', () => {
 
     await waitFor(() => expect(result.current.loading).toBe(false));
 
+    expect(result.current.folders).toEqual([
+      {
+        id: '10',
+        spItemId: 10,
+        label: 'Employee Resources',
+        url: '/resources',
+        order: 2,
+        folderPath: '/sites/current/Lists/Navigation/Employee Resources',
+      },
+    ]);
+
     expect(result.current.items).toEqual([
       {
-        id: 1,
-        title: 'Leave Policy',
-        url: '/leave',
-        description: undefined,
-        order: 0,
-        folderId: 10,
-        allowedGroups: [],
-        openInNewTab: false,
-      },
-      {
-        id: 2,
-        title: 'Home',
-        url: '/home',
-        description: 'Landing page',
+        id: '2',
+        spItemId: 2,
+        label: 'Policies',
+        url: '/policies',
+        description: '社内ポリシー',
         order: 1,
-        folderId: undefined,
-        allowedGroups: ['Everyone'],
+        parentFolderPath: '/sites/current/Lists/Navigation/Employee Resources',
         openInNewTab: true,
       },
     ]);
 
-    expect(result.current.folders).toEqual([
+    expect(result.current.getItemsForFolder(result.current.folders[0])).toEqual([
       {
-        id: 10,
-        title: 'Policies',
-        order: 2,
-        allowedGroups: ['HR'],
-        items: [
-          {
-            id: 1,
-            title: 'Leave Policy',
-            url: '/leave',
-            description: undefined,
-            order: 0,
-            folderId: 10,
-            allowedGroups: [],
-            openInNewTab: false,
-          },
-        ],
+        id: '2',
+        spItemId: 2,
+        label: 'Policies',
+        url: '/policies',
+        description: '社内ポリシー',
+        order: 1,
+        parentFolderPath: '/sites/current/Lists/Navigation/Employee Resources',
+        openInNewTab: true,
       },
     ]);
   });
 
-  it('sets an error state when the SharePoint call throws and keeps previous data', async () => {
-    mockSelectResult([]);
-    mockSelectResult([
+  it('getItemsForFolder returns only matching folder items', async () => {
+    queueQueryResult([
       {
-        Id: 2,
-        Title: 'Home',
-        NavUrl: '/home',
+        Id: 10,
+        Title: 'HR',
         NavOrder: 1,
-        NavAllowedGroups: '[]',
-        NavOpenInNewTab: false,
+        FileDirRef: '/sites/current/Lists/Navigation/HR',
+      },
+      {
+        Id: 11,
+        Title: 'IT',
+        NavOrder: 2,
+        FileDirRef: '/sites/current/Lists/Navigation/IT',
+      },
+    ]);
+    queueQueryResult([
+      {
+        Id: 21,
+        Title: '休暇申請',
+        NavUrl: '/leave',
+        NavOrder: 1,
+        FileDirRef: '/sites/current/Lists/Navigation/HR',
+      },
+      {
+        Id: 22,
+        Title: 'デバイス申請',
+        NavUrl: '/device',
+        NavOrder: 1,
+        FileDirRef: '/sites/current/Lists/Navigation/IT',
       },
     ]);
 
@@ -185,45 +197,69 @@ describe('useNavData', () => {
 
     await waitFor(() => expect(result.current.loading).toBe(false));
 
-    selectMock.mockReset();
-    mockSelectError(new Error('boom'));
-
-    await act(async () => {
-      result.current.reload();
-    });
-
-    await waitFor(() => expect(result.current.error).toBe('boom'));
-
-    expect(result.current.items).toEqual([
+    expect(result.current.getItemsForFolder(result.current.folders[0])).toEqual([
       {
-        id: 2,
-        title: 'Home',
-        url: '/home',
+        id: '21',
+        spItemId: 21,
+        label: '休暇申請',
+        url: '/leave',
         description: undefined,
         order: 1,
-        folderId: undefined,
-        allowedGroups: [],
+        parentFolderPath: '/sites/current/Lists/Navigation/HR',
         openInNewTab: false,
       },
     ]);
   });
 
-  it('calls the source site URL when sourceUrl is provided', async () => {
-    mockSelectResult([]);
-    mockSelectResult([]);
+  it('getTopLevelItems excludes items that belong to known folders', async () => {
+    queueQueryResult([
+      {
+        Id: 10,
+        Title: 'HR',
+        NavOrder: 1,
+        FileDirRef: '/sites/current/Lists/Navigation/HR',
+      },
+    ]);
+    queueQueryResult([
+      {
+        Id: 21,
+        Title: '休暇申請',
+        NavUrl: '/leave',
+        NavOrder: 1,
+        FileDirRef: '/sites/current/Lists/Navigation/HR',
+      },
+      {
+        Id: 22,
+        Title: 'ホーム',
+        NavUrl: '/home',
+        NavOrder: 1,
+        FileDirRef: '/sites/current/Lists/Navigation',
+      },
+    ]);
 
-    renderHook(() => useNavData(context, 'https://tenant.sharepoint.com/sites/source'));
+    const { result } = renderHook(() => useNavData(context));
 
-    await waitFor(() => expect(selectMock).toHaveBeenCalledTimes(2));
+    await waitFor(() => expect(result.current.loading).toBe(false));
 
-    expect(spfiMock).toHaveBeenCalledWith('https://tenant.sharepoint.com/sites/source');
+    expect(result.current.getTopLevelItems()).toEqual([
+      {
+        id: '22',
+        spItemId: 22,
+        label: 'ホーム',
+        url: '/home',
+        description: undefined,
+        order: 1,
+        parentFolderPath: '/sites/current/Lists/Navigation',
+        openInNewTab: false,
+      },
+    ]);
   });
 
   it('reload triggers a refetch', async () => {
-    mockSelectResult([]);
-    mockSelectResult([]);
-    mockSelectResult([]);
-    mockSelectResult([]);
+    queueQueryResult([]);
+    queueQueryResult([]);
+    queueQueryResult([]);
+    queueQueryResult([]);
 
     const { result } = renderHook(() => useNavData(context));
 
@@ -236,84 +272,36 @@ describe('useNavData', () => {
     await waitFor(() => expect(selectMock).toHaveBeenCalledTimes(4));
   });
 
-  it('returns a cross-site permission error for 403 responses', async () => {
-    mockSelectError(createHttpError(403, 'forbidden'));
+  it('calls the source site URL when sourceUrl is provided', async () => {
+    queueQueryResult([]);
+    queueQueryResult([]);
 
-    const { result } = renderHook(() =>
-      useNavData(context, 'https://tenant.sharepoint.com/sites/source')
-    );
+    renderHook(() => useNavData(context, 'https://tenant.sharepoint.com/sites/source'));
+
+    await waitFor(() => expect(selectMock).toHaveBeenCalledTimes(2));
+
+    expect(spfiMock).toHaveBeenCalledWith('https://tenant.sharepoint.com/sites/source');
+  });
+
+  it('sets a generic error when the SharePoint call throws', async () => {
+    queueQueryError(new Error('boom'));
+    queueQueryError(new Error('boom'));
+
+    const { result } = renderHook(() => useNavData(context));
 
     await waitFor(() =>
-      expect(result.current.error).toBe('参照先サイトへのアクセス権限がありません')
+      expect(result.current.error).toBe('ナビゲーションデータの取得に失敗しました')
     );
   });
 
-  it('falls back to the local site when the cross-site request times out', async () => {
-    jest.useFakeTimers();
-
-    selectMock
-      .mockImplementationOnce(() =>
-        jest.fn(
-          () =>
-            new Promise(() => {
-              return undefined;
-            })
-        )
-      )
-      .mockImplementationOnce(() =>
-        jest.fn(
-          () =>
-            new Promise(() => {
-              return undefined;
-            })
-        )
-      );
-    mockSelectResult([]);
-    mockSelectResult([
-      {
-        Id: 7,
-        Title: 'Local Home',
-        NavUrl: '/local',
-        NavOrder: 1,
-        NavAllowedGroups: '[]',
-        NavOpenInNewTab: false,
-      },
-    ]);
-
-    const { result } = renderHook(() =>
-      useNavData(context, 'https://tenant.sharepoint.com/sites/source')
-    );
-
-    await act(async () => {
-      jest.advanceTimersByTime(8000);
-      await Promise.resolve();
-    });
-
-    await waitFor(() =>
-      expect(result.current.error).toBe('参照先サイトへの接続がタイムアウトしました')
-    );
-    expect(result.current.items).toEqual([
-      {
-        id: 7,
-        title: 'Local Home',
-        url: '/local',
-        description: undefined,
-        order: 1,
-        folderId: undefined,
-        allowedGroups: [],
-        openInNewTab: false,
-      },
-    ]);
-  });
-
-  it('returns empty arrays after successful auto-provision on a 404 response', async () => {
-    mockSelectError(createHttpError(404, '404 not found'));
+  it('returns empty arrays after a 404 response', async () => {
+    queueQueryError(new Error('404 not found'));
+    queueQueryError(new Error('404 not found'));
 
     const { result } = renderHook(() => useNavData(context));
 
     await waitFor(() => expect(result.current.loading).toBe(false));
 
-    expect(provisionNavList).toHaveBeenCalledTimes(1);
     expect(result.current.folders).toEqual([]);
     expect(result.current.items).toEqual([]);
     expect(result.current.error).toBeNull();

@@ -1,71 +1,62 @@
-export type DropdownLayout = 'vertical' | 'horizontal';
-export type LogoSize = 'small' | 'medium' | 'large';
-export type FontSize = 'sm' | 'md' | 'lg';
-
-export interface Language {
-  code: string;
+/**
+ * Top-level navigation folder (= SharePoint list folder).
+ * Visibility is controlled by SharePoint item-level permissions.
+ */
+export interface NavFolder {
+  id: string;
+  spItemId: number;
   label: string;
+  url?: string;
+  order: number;
+  folderPath: string;
 }
 
+/**
+ * Child navigation link (= SharePoint list item inside a folder).
+ * Visibility is controlled by SharePoint item-level permissions.
+ */
 export interface NavItem {
-  id: number;
-  title: string;
+  id: string;
+  spItemId: number;
+  label: string;
   url: string;
   description?: string;
   order: number;
-  folderId?: number;
-  allowedGroups: string[];
+  parentFolderPath: string;
   openInNewTab: boolean;
 }
 
-export interface NavFolder {
-  id: number;
-  title: string;
-  order: number;
-  allowedGroups: string[];
-  items: NavItem[];
-}
-
+/**
+ * Visual and behavior configuration stored in the web properties bag.
+ */
 export interface NavConfig {
   version: number;
-  logoUrl: string;
-  logoSize: LogoSize;
+  logoUrl?: string;
+  logoSize: number;
   backgroundColor: string;
   textColor: string;
   hoverColor: string;
-  accentColor: string;
-  fontSize: FontSize;
-  fontFamily: string;
-  dropdownLayout: DropdownLayout;
-  showBreadcrumb: boolean;
-  breadcrumbFontSize: FontSize;
+  fontSize: number;
   hideSharePointNav: boolean;
+  showBreadcrumb: boolean;
+  breadcrumbFontSize: number;
   showLanguagePicker: boolean;
-  availableLanguages: Language[];
-  currentLanguage: string;
-  sourceUrl: string;
+  dropdownLayout: 'vertical' | 'horizontal';
+  sourceUrl?: string;
 }
 
-export interface NavConfigVersion extends NavConfig {
-  version: number;
-}
+export type DropdownLayout = 'vertical' | 'horizontal';
 
 export const DEFAULT_NAV_CONFIG: NavConfig = {
   version: 1,
-  logoUrl: '',
-  logoSize: 'medium',
-  backgroundColor: '#0F172A',
-  textColor: '#F8FAFC',
-  hoverColor: '#38BDF8',
-  accentColor: '#0EA5E9',
-  fontSize: 'md',
-  fontFamily: 'system-ui, sans-serif',
-  dropdownLayout: 'vertical',
-  showBreadcrumb: false,
-  breadcrumbFontSize: 'sm',
+  logoSize: 40,
+  backgroundColor: '#ffffff',
+  textColor: '#000000',
+  hoverColor: '#0078d4',
+  fontSize: 16,
   hideSharePointNav: true,
+  showBreadcrumb: false,
+  breadcrumbFontSize: 13,
   showLanguagePicker: false,
-  availableLanguages: [],
-  currentLanguage: 'ja',
-  sourceUrl: '',
+  dropdownLayout: 'vertical',
 };

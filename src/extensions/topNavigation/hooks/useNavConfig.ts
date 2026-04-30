@@ -1,16 +1,9 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { spfi, type SPFI } from '@pnp/sp';
-import { SPFx } from '@pnp/sp/presets/all';
-import '@pnp/sp/presets/all';
-import type { SpfxContext } from '../../../shared/spfxContext';
+import { useState, useEffect, useCallback } from 'react';
+import type { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
+import { spfi, SPFx } from '@pnp/sp';
+import '@pnp/sp/webs';
+
 import { DEFAULT_NAV_CONFIG, type NavConfig } from '../types/navTypes';
-
-const CONFIG_KEY = 'OrigamiNavConfig';
-const CURRENT_CONFIG_VERSION = 1;
-
-interface IAllPropertiesResponse {
-  AllProperties?: Record<string, unknown>;
-}
 
 interface UseNavConfigResult {
   config: NavConfig;
@@ -18,122 +11,62 @@ interface UseNavConfigResult {
   loading: boolean;
   error: string | null;
 }
+const CONFIG_KEY = 'OrigamiNavConfig';
 
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null;
-}
-
-function migrateConfig(config: NavConfig): NavConfig {
-  if (config.version < CURRENT_CONFIG_VERSION) {
-    return {
-      ...config,
-      version: CURRENT_CONFIG_VERSION,
-    };
-  }
-
-  return config;
-}
-
-function mergeConfig(value: unknown): NavConfig {
-  if (!isRecord(value)) {
-    return DEFAULT_NAV_CONFIG;
-  }
-
-  return migrateConfig({
-    ...DEFAULT_NAV_CONFIG,
-    ...value,
-  } as NavConfig);
-}
-
-async function loadStoredConfig(sp: SPFI): Promise<NavConfig> {
-  const response = await sp.web.select('AllProperties')<IAllPropertiesResponse>();
-  const storedValue = response.AllProperties?.[CONFIG_KEY];
-
-  if (typeof storedValue !== 'string' || storedValue.trim() === '') {
-    return DEFAULT_NAV_CONFIG;
-  }
-
-  try {
-    const parsed = JSON.parse(storedValue) as unknown;
-
-    return mergeConfig(parsed);
-  } catch {
-    return DEFAULT_NAV_CONFIG;
-  }
-}
-
-export function useNavConfig(context: SpfxContext): UseNavConfigResult {
+export function useNavConfig(
+  context: ApplicationCustomizerContext
+): UseNavConfigResult {
   const [config, setConfig] = useState<NavConfig>(DEFAULT_NAV_CONFIG);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  const sp = useMemo(
-    () => spfi(context.pageContext.web.absoluteUrl).using(SPFx(context)),
-    [context]
-  );
-
   useEffect(() => {
-    let isActive = true;
+    const sp = spfi().using(SPFx(context));
 
-    const load = async (): Promise<void> => {
-      setLoading(true);
-      setError(null);
+    sp.web.allProperties()
+      .then((props: Record<string, unknown>) => {
+        const raw = props[CONFIG_KEY];
 
-      try {
-        const nextConfig = await loadStoredConfig(sp);
-
-        if (isActive) {
-          setConfig(nextConfig);
-        }
-      } catch (caughtError: unknown) {
-        if (!isActive) {
-          return;
+        if (typeof raw === 'string') {
+          try {
+            const parsed = JSON.parse(raw) as Partial<NavConfig>;
+            setConfig({ ...DEFAULT_NAV_CONFIG, ...parsed });
+          } catch {
+            setConfig(DEFAULT_NAV_CONFIG);
+          }
         }
 
-        setConfig(DEFAULT_NAV_CONFIG);
-        setError(
-          caughtError instanceof Error ? caughtError.message : 'Failed to load navigation config.'
-        );
-      } finally {
-        if (isActive) {
-          setLoading(false);
-        }
-      }
-    };
-
-    void load();
-
-    return () => {
-      isActive = false;
-    };
-  }, [sp]);
+        setLoading(false);
+      })
+      .catch((err: unknown) => {
+        console.error('[TopNav] 設定の読み込みに失敗しました:', err);
+        setError('設定の読み込みに失敗しました');
+        setLoading(false);
+      });
+  }, [context]);
 
   const saveConfig = useCallback(
-    async (patch: Partial<NavConfig>): Promise<void> => {
-      const previousConfig = config;
-      const nextConfig = migrateConfig({
+    async (patch: Partial<NavConfig>) => {
+      const next: NavConfig = {
         ...config,
         ...patch,
-      });
+      };
 
-      setConfig(nextConfig);
-      setError(null);
-
+      setConfig(next);
       try {
+        const sp = spfi().using(SPFx(context));
         await sp.web.update({
           AllProperties: {
-            [CONFIG_KEY]: JSON.stringify(nextConfig),
+            [CONFIG_KEY]: JSON.stringify(next),
           },
         });
-      } catch (caughtError: unknown) {
-        setConfig(previousConfig);
-        setError(
-          caughtError instanceof Error ? caughtError.message : 'Failed to save navigation config.'
-        );
-        throw caughtError;
+      } catch (err: unknown) {
+        setConfig(config);
+        setError('設定の保存に失敗しました');
+        console.error('[TopNav] 設定の保存に失敗しました:', err);
       }
     },
-    [config, sp]
+    [config, context]
   );
 
   return {

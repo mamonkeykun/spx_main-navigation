@@ -1,270 +1,159 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
-import { spfi, type SPFI } from '@pnp/sp';
-import { SPFx } from '@pnp/sp/presets/all';
-import '@pnp/sp/presets/all';
-import type { SpfxContext } from '../../../shared/spfxContext';
+import { useState, useEffect, useMemo, useCallback } from 'react';
+import type { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
+import { spfi, SPFx, type SPFI } from '@pnp/sp';
+import '@pnp/sp/webs';
+import '@pnp/sp/lists';
+import '@pnp/sp/items';
+import '@pnp/sp/folders';
+
 import type { NavFolder, NavItem } from '../types/navTypes';
-import { provisionNavList } from '../utils/provisionNavList';
 
-const NAVIGATION_LIST_TITLE = 'Navigation';
+const LIST_TITLE = 'Navigation';
 
-interface ISPNavListItem {
-  Id: number;
-  Title?: string;
-  NavUrl?: string;
-  NavDescription?: string;
-  NavOrder?: number | null;
-  NavFolderId?: number | null;
-  NavAllowedGroups?: string | null;
-  NavOpenInNewTab?: boolean | null;
-}
-
-interface UseNavDataResult {
+export interface UseNavDataResult {
   folders: NavFolder[];
   items: NavItem[];
   loading: boolean;
   error: string | null;
   reload: () => void;
-}
-
-function parseAllowedGroups(value?: string | null): string[] {
-  if (!value) {
-    return [];
-  }
-
-  try {
-    const parsed = JSON.parse(value) as unknown;
-
-    if (!Array.isArray(parsed)) {
-      return [];
-    }
-
-    return parsed.filter((entry): entry is string => typeof entry === 'string');
-  } catch {
-    return [];
-  }
-}
-
-function mapFolder(item: ISPNavListItem, items: NavItem[]): NavFolder {
-  return {
-    id: item.Id,
-    title: item.Title ?? '',
-    order: item.NavOrder ?? 0,
-    allowedGroups: parseAllowedGroups(item.NavAllowedGroups),
-    items: items.filter((navItem) => navItem.folderId === item.Id),
-  };
-}
-
-function isFolderLikeItem(item: ISPNavListItem): boolean {
-  return !item.NavUrl && item.NavFolderId == null;
-}
-
-function mapItem(item: ISPNavListItem): NavItem {
-  return {
-    id: item.Id,
-    title: item.Title ?? '',
-    url: item.NavUrl ?? '',
-    description: item.NavDescription ?? undefined,
-    order: item.NavOrder ?? 0,
-    folderId: item.NavFolderId ?? undefined,
-    allowedGroups: parseAllowedGroups(item.NavAllowedGroups),
-    openInNewTab: item.NavOpenInNewTab ?? false,
-  };
-}
-
-function getErrorCode(caughtError: unknown): number | undefined {
-  if (typeof caughtError !== 'object' || caughtError === null) {
-    return undefined;
-  }
-
-  const maybeStatus = (caughtError as { status?: unknown }).status;
-  return typeof maybeStatus === 'number' ? maybeStatus : undefined;
-}
-
-function isNotFoundError(caughtError: unknown): boolean {
-  if (getErrorCode(caughtError) === 404) {
-    return true;
-  }
-
-  return caughtError instanceof Error && caughtError.message.includes('404');
-}
-
-function sortNavItems<T extends { order: number; title: string }>(items: T[]): T[] {
-  return [...items].sort((left, right) => {
-    if (left.order !== right.order) {
-      return left.order - right.order;
-    }
-
-    return left.title.localeCompare(right.title);
-  });
-}
-
-async function fetchNavRows(sp: SPFI, filter: string): Promise<ISPNavListItem[]> {
-  return sp.web.lists
-    .getByTitle(NAVIGATION_LIST_TITLE)
-    .items.filter(filter)
-    .select(
-      'Id',
-      'Title',
-      'NavUrl',
-      'NavDescription',
-      'NavOrder',
-      'NavFolderId',
-      'NavAllowedGroups',
-      'NavOpenInNewTab'
-    )<ISPNavListItem[]>();
-}
-
-async function fetchNavigationData(sp: SPFI): Promise<{
-  folders: NavFolder[];
-  items: NavItem[];
-}> {
-  const [folderRows, itemRows] = await Promise.all([
-    fetchNavRows(sp, 'FSObjType eq 1'),
-    fetchNavRows(sp, 'FSObjType eq 0'),
-  ]);
-  const normalizedFolderRows = [...folderRows, ...itemRows.filter(isFolderLikeItem)];
-  const navItemRows = itemRows.filter((item) => !isFolderLikeItem(item));
-  const nextItems = sortNavItems(navItemRows.map(mapItem));
-  const nextFolders = sortNavItems(normalizedFolderRows.map((folder) => mapFolder(folder, nextItems)));
-
-  return {
-    folders: nextFolders,
-    items: nextItems,
-  };
+  getItemsForFolder: (folder: NavFolder) => NavItem[];
+  getTopLevelItems: () => NavItem[];
 }
 
 export function useNavData(
-  context: SpfxContext,
+  context: ApplicationCustomizerContext,
   sourceUrl?: string
 ): UseNavDataResult {
   const [folders, setFolders] = useState<NavFolder[]>([]);
   const [items, setItems] = useState<NavItem[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [reloadCount, setReloadCount] = useState<number>(0);
-  const localSp = useMemo(
-    () => spfi(context.pageContext.web.absoluteUrl).using(SPFx(context)),
-    [context]
-  );
+  const [reloadCounter, setReloadCounter] = useState(0);
 
-  const targetUrl = sourceUrl || context.pageContext.web.absoluteUrl;
-  const sp = useMemo(() => spfi(targetUrl).using(SPFx(context)), [context, targetUrl]);
+  const sp: SPFI = useMemo(() => {
+    const targetUrl = sourceUrl && sourceUrl.trim() !== ''
+      ? sourceUrl.trim()
+      : context.pageContext.web.absoluteUrl;
+
+    return spfi(targetUrl).using(SPFx(context));
+  }, [sourceUrl, context]);
 
   const reload = useCallback(() => {
-    setReloadCount((count) => count + 1);
+    setReloadCounter((count) => count + 1);
   }, []);
 
-  useEffect(() => {
-    let isActive = true;
+  const getItemsForFolder = useCallback(
+    (folder: NavFolder): NavItem[] => {
+      // DECISION: Parentage is resolved in the hook using the native SharePoint folder path.
+      return items.filter((item) => item.parentFolderPath === folder.folderPath);
+    },
+    [items]
+  );
 
-    const load = async (): Promise<void> => {
+  const getTopLevelItems = useCallback((): NavItem[] => {
+    const folderPaths = new Set(folders.map((folder) => folder.folderPath));
+    return items.filter((item) => !folderPaths.has(item.parentFolderPath));
+  }, [folders, items]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    async function fetchNav(): Promise<void> {
       setLoading(true);
       setError(null);
 
       try {
-        const fetchRemoteData = async (): Promise<{ folders: NavFolder[]; items: NavItem[] }> => {
-          if (!sourceUrl) {
-            return fetchNavigationData(sp);
-          }
+        const listItems = sp.web.lists.getByTitle(LIST_TITLE);
+        const [rawFolders, rawItems] = await Promise.all([
+          listItems.items
+            .filter('FSObjType eq 1')
+            .select('Id', 'Title', 'NavUrl', 'NavOrder', 'FileDirRef')
+            .orderBy('NavOrder', true)
+            <{ Id: number; Title: string; NavUrl?: string; NavOrder?: number; FileDirRef: string }[]>(),
+          listItems.items
+            .filter('FSObjType eq 0')
+            .select(
+              'Id',
+              'Title',
+              'NavUrl',
+              'NavDescription',
+              'NavOrder',
+              'NavOpenInNewTab',
+              'FileDirRef'
+            )
+            .orderBy('FileDirRef', true)
+            .orderBy('NavOrder', true)
+            <{
+              Id: number;
+              Title: string;
+              NavUrl?: string;
+              NavDescription?: string;
+              NavOrder?: number;
+              NavOpenInNewTab?: boolean;
+              FileDirRef: string;
+            }[]>(),
+        ]);
 
-          const timeout = new Promise<never>((_, reject) =>
-            setTimeout(() => reject(new Error('timeout')), 8000)
+        if (cancelled) {
+          return;
+        }
+
+        setFolders(
+          rawFolders.map((folder) => ({
+            id: String(folder.Id),
+            spItemId: folder.Id,
+            label: folder.Title,
+            url: folder.NavUrl,
+            order: folder.NavOrder ?? 0,
+            folderPath: folder.FileDirRef,
+          }))
+        );
+
+        setItems(
+          rawItems.map((item) => ({
+            id: String(item.Id),
+            spItemId: item.Id,
+            label: item.Title,
+            url: item.NavUrl ?? '',
+            description: item.NavDescription,
+            order: item.NavOrder ?? 0,
+            parentFolderPath: item.FileDirRef,
+            openInNewTab: item.NavOpenInNewTab ?? false,
+          }))
+        );
+      } catch (err: unknown) {
+        if (cancelled) {
+          return;
+        }
+
+        const is404 =
+          err instanceof Error &&
+          (err.message.includes('404') || err.message.includes('does not exist'));
+
+        if (is404) {
+          setFolders([]);
+          setItems([]);
+          setError(null);
+          console.warn(
+            '[TopNav] Navigationリストが見つかりません。provision-navigation-list.ps1 を実行してください。'
           );
-
-          // DECISION: Promise.race gives a simple timeout path without layering AbortController into PnPjs calls.
-          return Promise.race([fetchNavigationData(sp), timeout]);
-        };
-
-        const result = await fetchRemoteData();
-
-        if (!isActive) {
-          return;
+        } else {
+          setError('ナビゲーションデータの取得に失敗しました');
+          console.error('[TopNav] useNavData error:', err);
         }
-
-        setItems(result.items);
-        setFolders(result.folders);
-      } catch (caughtError: unknown) {
-        if (!isActive) {
-          return;
-        }
-
-        if (sourceUrl && caughtError instanceof Error && caughtError.message === 'timeout') {
-          console.warn('Cross-site navigation timed out. Falling back to the local site.');
-
-          try {
-            const fallbackResult = await fetchNavigationData(localSp);
-
-            if (!isActive) {
-              return;
-            }
-
-            setItems(fallbackResult.items);
-            setFolders(fallbackResult.folders);
-            setError('参照先サイトへの接続がタイムアウトしました');
-            return;
-          } catch (fallbackError: unknown) {
-            if (!isActive) {
-              return;
-            }
-
-            const fallbackMessage =
-              fallbackError instanceof Error
-                ? fallbackError.message
-                : 'Failed to load navigation data.';
-
-            setError(fallbackMessage);
-            return;
-          }
-        }
-
-        if (sourceUrl && getErrorCode(caughtError) === 403) {
-          setError('参照先サイトへのアクセス権限がありません');
-          return;
-        }
-
-        if (isNotFoundError(caughtError)) {
-          try {
-            // DECISION: A missing Navigation list is recoverable, so the hook provisions the schema once and returns empty data.
-            await provisionNavList(sp);
-
-            if (!isActive) {
-              return;
-            }
-
-            setFolders([]);
-            setItems([]);
-            setError(null);
-            return;
-          } catch {
-            if (!isActive) {
-              return;
-            }
-
-            setError(
-              'Navigationリストの作成に失敗しました。サイト管理者に連絡してください。'
-            );
-            return;
-          }
-        }
-
-        const message =
-          caughtError instanceof Error ? caughtError.message : 'Failed to load navigation data.';
-
-        setError(message);
       } finally {
-        if (isActive) {
+        if (!cancelled) {
           setLoading(false);
         }
       }
-    };
+    }
 
-    void load();
+    void fetchNav();
 
     return () => {
-      isActive = false;
+      cancelled = true;
     };
-  }, [localSp, reloadCount, sourceUrl, sp]);
+  }, [sp, reloadCounter]);
 
   return {
     folders,
@@ -272,5 +161,7 @@ export function useNavData(
     loading,
     error,
     reload,
+    getItemsForFolder,
+    getTopLevelItems,
   };
 }

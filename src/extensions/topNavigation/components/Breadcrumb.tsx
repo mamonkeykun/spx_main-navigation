@@ -1,19 +1,17 @@
 import * as React from 'react';
-import type { FontSize, NavItem } from '../types/navTypes';
+import type { NavItem } from '../types/navTypes';
 import { useNavStructure } from './NavStructureContext';
 import styles from './Breadcrumb.module.css';
 
 interface BreadcrumbProps {
   items: NavItem[];
-  fontSize: FontSize;
+  fontSize: number;
 }
 
 interface BreadcrumbSegment {
   href?: string;
   label: string;
 }
-
-const FONT_SIZE_MAP: Record<FontSize, string> = { sm: '12px', md: '14px', lg: '16px' };
 
 /**
  * Resolves the most specific matching nav item for the current location.
@@ -36,21 +34,24 @@ export default function Breadcrumb({ items, fontSize }: BreadcrumbProps): JSX.El
   const folders = useNavStructure();
   const currentOrigin = window.location.origin;
   const currentPath = window.location.pathname.toLowerCase();
+
   const segments = React.useMemo(() => {
     const currentItem = findCurrentItem(items, currentOrigin, currentPath);
 
     if (!currentItem) {
-      return [{ href: currentOrigin, label: 'Home' }];
+      return [{ href: currentOrigin, label: 'ホーム' }];
     }
 
-    const parentFolder = folders.find((folder) => folder.id === currentItem.folderId);
-    const nextSegments: BreadcrumbSegment[] = [{ href: currentOrigin, label: 'Home' }];
+    const parentFolder = folders.find(
+      (folder) => folder.folderPath === currentItem.parentFolderPath
+    );
+    const nextSegments: BreadcrumbSegment[] = [{ href: currentOrigin, label: 'ホーム' }];
 
     if (parentFolder) {
-      nextSegments.push({ label: parentFolder.title });
+      nextSegments.push({ label: parentFolder.label });
     }
 
-    nextSegments.push({ label: currentItem.title });
+    nextSegments.push({ label: currentItem.label });
 
     return nextSegments;
   }, [currentOrigin, currentPath, folders, items]);
@@ -58,7 +59,7 @@ export default function Breadcrumb({ items, fontSize }: BreadcrumbProps): JSX.El
   return (
     <div
       className={styles.breadcrumb}
-      style={{ '--bc-font-size': FONT_SIZE_MAP[fontSize] } as React.CSSProperties}
+      style={{ '--bc-font-size': `${fontSize}px` } as React.CSSProperties}
       aria-label="パンくずリスト"
     >
       {segments.map((segment, index) => {

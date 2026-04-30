@@ -6,33 +6,44 @@ import MobileDrawer from './MobileDrawer';
 import NavFolder from './NavFolder';
 import NavItemLink from './NavItem';
 import NavStructureContext from './NavStructureContext';
+import { NavItemEditor } from './NavItemEditor';
+import { SettingsPanel } from './SettingsPanel';
 import { injectHideSpNav, removeHideSpNav } from '../utils/hideSpNav';
 import { useNavConfig } from '../hooks/useNavConfig';
-import { useCurrentUser } from '../hooks/useCurrentUser';
 import { useNavData } from '../hooks/useNavData';
-import { useNavFilter } from '../hooks/useNavFilter';
 import styles from './TopNav.module.css';
 
 interface TopNavProps {
   context: ApplicationCustomizerContext;
 }
 
-const FONT_SIZE_MAP = { sm: '12px', md: '14px', lg: '16px' };
-const LOGO_SIZE_MAP = { small: '32px', medium: '40px', large: '56px' };
-
 /**
  * Renders the main application customizer navigation.
  */
 export function TopNav({ context }: TopNavProps): JSX.Element | null {
-  const { config, loading: configLoading, error: configError } = useNavConfig(context);
-  const { folders, items, loading: navLoading, error: navError } = useNavData(context, config.sourceUrl);
-  const { groups, loading: groupsLoading, error: groupsError } = useCurrentUser(context);
-  const filteredNav = useNavFilter({ folders, items, userGroups: groups, loading: groupsLoading, error: groupsError });
+  const {
+    config,
+    saveConfig,
+    loading: configLoading,
+    error: configError,
+  } = useNavConfig(context);
+  const {
+    folders,
+    items,
+    loading: navLoading,
+    error: navError,
+    reload,
+    getItemsForFolder,
+    getTopLevelItems,
+  } = useNavData(context, config.sourceUrl);
   const [drawerOpen, setDrawerOpen] = React.useState<boolean>(false);
-  const topLevelItems = React.useMemo(
-    () => filteredNav.items.filter((item) => typeof item.folderId !== 'number'),
-    [filteredNav.items]
-  );
+  const [settingsOpen, setSettingsOpen] = React.useState<boolean>(false);
+  const [editorOpen, setEditorOpen] = React.useState<boolean>(false);
+  const [saving, setSaving] = React.useState<boolean>(false);
+  const isAdmin =
+    (context.pageContext.legacyPageContext as Record<string, unknown> | undefined)?.isSiteAdmin === true;
+  const topLevelItems = getTopLevelItems();
+  const languageOptions = React.useMemo(() => [{ code: 'ja', label: '日本語' }], []);
 
   React.useEffect(() => {
     if (!config.hideSharePointNav) {
@@ -47,8 +58,20 @@ export function TopNav({ context }: TopNavProps): JSX.Element | null {
     };
   }, [config.hideSharePointNav]);
 
-  if (configLoading || navLoading || filteredNav.loading) {
-    return <div className={styles.skeleton} aria-hidden="true" />;
+  const handleSaveConfig = React.useCallback(
+    async (patch: Partial<typeof config>) => {
+      setSaving(true);
+      try {
+        await saveConfig(patch);
+      } finally {
+        setSaving(false);
+      }
+    },
+    [saveConfig]
+  );
+
+  if (configLoading || navLoading) {
+    return <div className={styles.skeleton} aria-label="ナビゲーション読み込み中" />;
   }
 
   if (configError || navError) {
@@ -56,8 +79,8 @@ export function TopNav({ context }: TopNavProps): JSX.Element | null {
   }
 
   return (
-    <NavStructureContext.Provider value={filteredNav.folders}>
-      <div className={styles.shell}>
+    <NavStructureContext.Provider value={folders}>
+      <>
         <nav
           className={styles.nav}
           aria-label="メインナビゲーション"
@@ -66,21 +89,48 @@ export function TopNav({ context }: TopNavProps): JSX.Element | null {
               '--nav-bg': config.backgroundColor,
               '--nav-text': config.textColor,
               '--nav-hover': config.hoverColor,
-              '--nav-accent': config.accentColor,
-              '--nav-font-family': config.fontFamily,
-              '--nav-font-size': FONT_SIZE_MAP[config.fontSize],
-              '--nav-logo-height': LOGO_SIZE_MAP[config.logoSize],
-              '--nav-height': '56px',
+              '--nav-font-size': `${config.fontSize}px`,
+              '--nav-logo-height': `${config.logoSize}px`,
             } as React.CSSProperties
           }
         >
-          {config.logoUrl ? <img className={styles.logo} src={config.logoUrl} alt="" aria-hidden="true" /> : null}
+          {isAdmin ? (
+            <div className={styles.adminArea}>
+              <button
+                type="button"
+                className={styles.gearBtn}
+                onClick={() => {
+                  setSettingsOpen((open) => !open);
+                  setEditorOpen(false);
+                }}
+                aria-label="ナビゲーション設定"
+                aria-expanded={settingsOpen}
+                aria-haspopup="dialog"
+              >
+                ⚙
+              </button>
+              <button
+                type="button"
+                className={styles.editBtn}
+                onClick={() => {
+                  setEditorOpen((open) => !open);
+                  setSettingsOpen(false);
+                }}
+                aria-label="ナビゲーションを追加・編集"
+                aria-expanded={editorOpen}
+                aria-haspopup="dialog"
+              >
+                ナビゲーションを追加・編集
+              </button>
+            </div>
+          ) : null}
+          {config.logoUrl ? <img className={styles.logo} src={config.logoUrl} alt="ロゴ" /> : null}
           <div className={styles.folderRow}>
-            {filteredNav.folders.map((folder) => (
+            {folders.map((folder) => (
               <NavFolder
                 key={folder.id}
                 folder={folder}
-                items={folder.items}
+                items={getItemsForFolder(folder)}
                 dropdownLayout={config.dropdownLayout}
               />
             ))}
@@ -91,7 +141,7 @@ export function TopNav({ context }: TopNavProps): JSX.Element | null {
           <button
             type="button"
             className={styles.hamburger}
-            aria-label={drawerOpen ? 'メニューを閉じる' : 'メニューを開く'}
+            aria-label="メニューを開く"
             aria-expanded={drawerOpen}
             onClick={() => setDrawerOpen(true)}
           >
@@ -99,26 +149,43 @@ export function TopNav({ context }: TopNavProps): JSX.Element | null {
           </button>
           {config.showLanguagePicker ? (
             <LanguagePicker
-              languages={config.availableLanguages}
-              currentLanguage={config.currentLanguage}
+              languages={languageOptions}
+              currentLanguage="ja"
               onLanguageChange={(code) => {
-                // DECISION: Persisted multilingual switching is deferred; reflect intent in the URL for now.
                 const nextUrl = new URL(window.location.href);
                 nextUrl.searchParams.set('lang', code);
                 window.location.assign(nextUrl.toString());
               }}
             />
           ) : null}
+          {isAdmin && settingsOpen ? (
+            <SettingsPanel
+              config={config}
+              onSave={handleSaveConfig}
+              onClose={() => setSettingsOpen(false)}
+              saving={saving}
+            />
+          ) : null}
+          {isAdmin && editorOpen ? (
+            <NavItemEditor
+              context={context}
+              folders={folders}
+              items={items}
+              onClose={() => setEditorOpen(false)}
+              onSaved={reload}
+            />
+          ) : null}
         </nav>
         <MobileDrawer
           isOpen={drawerOpen}
           onClose={() => setDrawerOpen(false)}
-          folders={filteredNav.folders}
-          items={filteredNav.items}
+          folders={folders}
           config={config}
+          getItemsForFolder={getItemsForFolder}
+          getTopLevelItems={getTopLevelItems}
         />
-        {config.showBreadcrumb ? <Breadcrumb items={filteredNav.items} fontSize={config.breadcrumbFontSize} /> : null}
-      </div>
+        {config.showBreadcrumb ? <Breadcrumb items={items} fontSize={config.breadcrumbFontSize} /> : null}
+      </>
     </NavStructureContext.Provider>
   );
 }

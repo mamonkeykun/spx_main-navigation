@@ -1,28 +1,56 @@
 .wrapper {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
 }
 
 .trigger {
   background: none;
   border: none;
   color: var(--nav-text);
-  font-family: var(--nav-font-family);
   font-size: var(--nav-font-size);
   padding: 8px 12px;
   cursor: pointer;
   border-radius: 4px;
   transition: background 0.15s ease, color 0.15s ease;
+  display: inline-flex;
+  align-items: center;
 }
 
 .trigger:hover,
 .trigger:focus-visible,
 .triggerOpen {
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.06);
   color: var(--nav-hover);
   outline: none;
 }
 
 .triggerOpen {
-  color: var(--nav-accent);
+  color: var(--nav-hover);
+}
+
+.chevron {
+  margin-left: 4px;
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.closeBtn {
+  background: none;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  color: var(--nav-text, #323130);
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  cursor: pointer;
+  margin-left: 2px;
+  flex-shrink: 0;
+}
+
+.closeBtn:hover {
+  background: rgba(0, 0, 0, 0.06);
 }

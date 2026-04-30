@@ -1,9 +1,13 @@
 import * as React from 'react';
-import type { Language } from '../types/navTypes';
 import styles from './LanguagePicker.module.css';
 
+interface LanguageOption {
+  code: string;
+  label: string;
+}
+
 interface LanguagePickerProps {
-  languages: Language[];
+  languages: LanguageOption[];
   currentLanguage: string;
   onLanguageChange: (code: string) => void;
 }

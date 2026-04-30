@@ -8,8 +8,9 @@ interface MobileDrawerProps {
   isOpen: boolean;
   onClose: () => void;
   folders: NavFolder[];
-  items: NavItem[];
   config: NavConfig;
+  getItemsForFolder: (folder: NavFolder) => NavItem[];
+  getTopLevelItems: () => NavItem[];
 }
 
 /**
@@ -19,15 +20,14 @@ export default function MobileDrawer({
   isOpen,
   onClose,
   folders,
-  items,
   config,
+  getItemsForFolder,
+  getTopLevelItems,
 }: MobileDrawerProps): JSX.Element | null {
   const drawerRef = React.useRef<HTMLDivElement>(null);
-  const [openFolders, setOpenFolders] = React.useState<Record<number, boolean>>({});
-  const topLevelItems = React.useMemo(
-    () => items.filter((item) => typeof item.folderId !== 'number'),
-    [items]
-  );
+  const [openFolders, setOpenFolders] = React.useState<Record<string, boolean>>({});
+  const topLevelItems = getTopLevelItems();
+  const languageOptions = React.useMemo(() => [{ code: 'ja', label: '日本語' }], []);
 
   React.useEffect(() => {
     if (!isOpen) {
@@ -109,6 +109,8 @@ export default function MobileDrawer({
         {topLevelItems.length > 0 ? <hr className={styles.divider} /> : null}
         {folders.map((folder) => {
           const isExpanded = openFolders[folder.id] ?? false;
+          const folderItems = getItemsForFolder(folder);
+
           return (
             <div key={folder.id}>
               <button
@@ -119,7 +121,7 @@ export default function MobileDrawer({
                   setOpenFolders((current) => ({ ...current, [folder.id]: !isExpanded }))
                 }
               >
-                <span>{folder.title}</span>
+                <span>{folder.label}</span>
                 <span
                   className={
                     isExpanded
@@ -132,7 +134,7 @@ export default function MobileDrawer({
               </button>
               {isExpanded ? (
                 <div className={styles.accordionItems}>
-                  {folder.items.map((item) => (
+                  {folderItems.map((item) => (
                     <NavItemLink
                       key={item.id}
                       item={item}
@@ -149,8 +151,8 @@ export default function MobileDrawer({
           <>
             <hr className={styles.divider} />
             <LanguagePicker
-              languages={config.availableLanguages}
-              currentLanguage={config.currentLanguage}
+              languages={languageOptions}
+              currentLanguage="ja"
               onLanguageChange={(code) => {
                 const nextUrl = new URL(window.location.href);
                 nextUrl.searchParams.set('lang', code);

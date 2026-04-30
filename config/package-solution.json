@@ -19,7 +19,7 @@
         "default": "SPFx Top Navigation with targeting"
       },
       "longDescription": {
-        "default": "Application Customizer and Settings Web Part for custom SharePoint navigation"
+        "default": "Application Customizer for Origami-style SharePoint top navigation"
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -28,12 +28,11 @@
     "features": [
       {
         "title": "spfx-top-navigation Feature",
-        "description": "Installs the Top Navigation Application Customizer and Settings Web Part",
+        "description": "Installs the Top Navigation Application Customizer",
         "id": "3c49e171-418f-4b31-8b8b-4e54397d63cc",
         "version": "1.0.0.0",
         "componentIds": [
-          "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc",
-          "8974e9a7-87e4-48c8-998d-6be14f15713b"
+          "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc"
         ]
       }
     ]

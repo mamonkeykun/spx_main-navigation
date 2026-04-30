@@ -79,7 +79,7 @@ Hide SharePoint navigation through injected CSS rather than DOM removal or mutat
 ## ADR-005: Fluent UI only in Settings Web Part
 
 Date: 2026-04-27  
-Status: Accepted
+Status: Superseded
 
 ### Context
 
@@ -95,10 +95,12 @@ Use Fluent UI only inside the Settings Web Part and avoid it in the Application 
 - Runtime navigation payload stays smaller.
 - Shared design tokens must be mapped carefully between custom nav styles and Fluent UI controls.
 
+Superseded by: ADR-008, ADR-014
+
 ## ADR-006: JSON array in Multiple-lines-of-text for allowedGroups
 
 Date: 2026-04-27  
-Status: Accepted
+Status: Superseded
 
 ### Context
 
@@ -113,6 +115,8 @@ Store `allowedGroups` as a JSON array in a multiple-lines-of-text column.
 - The runtime can parse targeting data into a simple `string[]`.
 - Admin tooling must validate JSON before save.
 - The field is flexible but relies on disciplined formatting rather than enforced relational structure.
+
+Superseded by: ADR-009
 
 ## ADR-007: No barrel files to avoid circular dependency risk
 
@@ -133,147 +137,137 @@ Do not use barrel files such as `index.ts`; import directly from concrete module
 - Circular dependency risk is reduced.
 - Refactors require more direct import updates when files move.
 
-## ADR-008: HTML5 drag and drop over an external DnD library
+## ADR-008: 管理UIをApplication Customizerに内包
 
-Date: 2026-04-27  
+Date: 2026-04-30  
 Status: Accepted
 
 ### Context
 
-The navigation manager needs drag-to-reorder behavior inside SPFx, but the project rules prohibit adding dependencies without approval and the admin UI does not require a complex cross-list drag system.
+ナビゲーション設定 UI の配置場所を決定する必要があった。
 
 ### Decision
 
-Use the native HTML5 Drag and Drop API for item reordering instead of adding a dedicated drag-and-drop library.
+設定パネルと編集パネルを Application Customizer 内のフローティングオーバーレイとして実装する。Web Part は使用しない。
 
 ### Consequences
 
-- The solution avoids a new bundle dependency in the admin surface.
-- Reorder behavior stays limited to the current item list, which matches the current requirement.
-- Advanced accessibility and cross-device drag behavior remain simpler than a full DnD framework.
+- 管理 UI はナビバー上の歯車ボタンと編集ボタンから起動する
+- Settings Web Part は不要になる
+- 管理 UI の表示は `isSiteAdmin` で制御する
 
-## ADR-009: Auto-save with debounce over an explicit Save button
+## ADR-009: SPネイティブ権限によるターゲティング
 
-Date: 2026-04-27  
+Date: 2026-04-30  
 Status: Accepted
 
 ### Context
 
-The settings panel edits a singleton configuration object where most changes should feel immediate, but some fields such as URLs and colors produce noisy writes if persisted on every keystroke.
+ナビリンクのターゲティング実装方法を決定する必要があった。
 
 ### Decision
 
-Persist settings automatically and debounce text-like inputs instead of requiring a separate Save button.
+SharePoint のアイテムレベル権限を使用する。`NavAllowedGroups` 列とクライアントサイドフィルタは使用しない。
 
 ### Consequences
 
-- The admin flow is faster because common changes save inline.
-- Debounce reduces unnecessary property bag writes for rapidly changing inputs.
-- Save-state feedback remains necessary because persistence is implicit rather than user-triggered.
+- `useNavFilter`、`useCurrentUser`、`PermissionEditor` は不要
+- リスト項目とフォルダの表示制御は SharePoint REST API の返却結果に委ねる
+- `Navigation` リストのスキーマは単純になる
 
-## ADR-010: Panel for permission editing instead of a dialog
+## ADR-010: FileDirRefによる親子関係の管理
 
-Date: 2026-04-27  
+Date: 2026-04-30  
 Status: Accepted
 
 ### Context
 
-Permission targeting needs a group list that can grow vertically and may require repeated open/save cycles while the admin keeps the main manager context visible.
+ナビフォルダとアイテムの親子関係の実装方法を決定する必要があった。
 
 ### Decision
 
-Render permission editing in a slide-in `Panel` instead of a modal dialog.
+SP リストのネイティブフォルダ構造を使用する。親子関係は `FileDirRef` によるパス照合で判定する。
 
 ### Consequences
 
-- The group checklist has more vertical space than a dialog would comfortably provide.
-- The admin can preserve spatial context in the navigation manager while editing permissions.
-- The UI introduces one more surface state to manage in the settings app.
+- `NavFolderId` 列は不要になる
+- `useNavData.ts` は `getItemsForFolder()` と `getTopLevelItems()` を提供する
+- `NavItemEditor` はネイティブフォルダパスへ項目を作成・移動する
 
-## ADR-011: HTML5 focus trap for the mobile drawer
+## ADR-011: Custom ColorPicker without Fluent UI in the Application Customizer
 
-Date: 2026-04-27  
+Date: 2026-04-30  
 Status: Accepted
 
 ### Context
 
-The mobile drawer needs keyboard-safe focus containment, but the project should avoid pulling in a separate focus-trap library for a single overlay surface.
+設定パネルには richer な color picker が必要だが、Application Customizer バンドルに Fluent UI を持ち込みたくない。
 
 ### Decision
 
-Use a small HTML and keyboard-event based focus loop inside `MobileDrawer` rather than adding an external package.
+色変換ユーティリティと picker panel を分離した custom ColorPicker を extension code 内で実装する。
 
 ### Consequences
 
-- The drawer remains keyboard navigable and self-contained.
-- The implementation stays dependency-free and easy to audit.
-- Focus management remains intentionally scoped to the drawer rather than becoming a shared modal framework.
+- `@fluentui/react` なしでカラーピッカーを維持できる
+- `ColorPicker.tsx` は 200 行制限のため panel と utility に分割する
 
-## ADR-012: Promise.race for cross-site timeout handling
+## ADR-012: isSiteAdmin gates admin-only controls
 
-Date: 2026-04-27  
+Date: 2026-04-30  
 Status: Accepted
 
 ### Context
 
-Cross-site navigation needs a deterministic timeout and fallback path, but the data hook already relies on PnPjs fluent calls rather than a raw `fetch` pipeline.
+歯車ボタンと「ナビゲーションを追加・編集」ボタンは管理者だけに表示する必要がある。
 
 ### Decision
 
-Use `Promise.race` with a timeout promise to detect slow cross-site reads and trigger a local-site fallback.
+`legacyPageContext.isSiteAdmin` を使って管理 UI の表示可否を判定する。
 
 ### Consequences
 
-- Timeout handling stays explicit in the hook without deeper PnPjs cancellation wiring.
-- The user gets a targeted timeout message and the nav can still render from the local site.
-- The remote request is not actively aborted; the timeout only controls the hook’s awaited result.
+- 一般ユーザーにはクリーンなナビバーのみ表示される
+- 管理 UI の表示条件は customizer 内で一貫する
 
-## ADR-013: Case-sensitive group matching for LoginName checks
+## ADR-013: Missing Navigation list returns empty data
 
-Date: 2026-04-27  
+Date: 2026-04-30  
 Status: Accepted
 
 ### Context
 
-SharePoint targeting values are stored as raw `LoginName` strings, and normalizing casing in the runtime could hide data issues or diverge from what SharePoint actually returns.
+`Navigation` リストが未作成のサイトでも customizer は起動する。
 
 ### Decision
-Use case-sensitive string comparison for group membership checks.
+
+404 時は一般エラーにせず空データを返し、管理者向けの案内ログを出す。
 
 ### Consequences
 
-- Runtime behavior matches the exact values returned by SharePoint.
-- Administrators must enter targeting values with the expected casing.
-- Mismatches surface as data-quality issues instead of being silently normalized.
+- 未構成サイトでもランタイムが致命エラーにならない
+- 管理者は provisioning 実行の必要性を把握できる
 
-## ADR-014: Auto-provision the Navigation list on first 404
+## ADR-014: Alias `gulp serve` to SPFx `serve-deprecated`
 
 Date: 2026-04-29  
 Status: Accepted
 
 ### Context
 
-The navigation hook can run on sites where the `Navigation` list has not been provisioned yet. Treating that state as a generic fetch failure prevents first-run recovery and leaves the UI in an avoidable error state.
+SPFx 1.20 registers the local dev server task as `serve-deprecated`, but project scripts and operator expectations still use `gulp serve`.
 
 ### Decision
 
-When navigation data loading receives a 404 for the `Navigation` list, attempt to create the list and required fields automatically, then return empty navigation data instead of surfacing a generic read error.
+Register a `serve` alias in `gulpfile.js` that points to the SPFx-provided `serve-deprecated` executable.
 
 ### Consequences
 
-- New or partially configured sites can recover without manual list creation.
-- A failed provisioning attempt still surfaces a targeted admin-facing error message.
-- The hook now treats missing-list 404 responses as a recoverable bootstrap condition rather than a terminal fetch error.
+- Local setup commands can continue using `gulp serve`.
+- The project keeps the underlying SPFx task implementation unchanged.
+- Future SPFx upgrades should revisit this alias if the framework restores a native `serve` task name.
 
-Keep `allowedGroups` matching case-sensitive.
-
-### Consequences
-
-- Runtime behavior mirrors stored SharePoint `LoginName` values directly.
-- Tests can document exact matching semantics for support and admin troubleshooting.
-- Admins must store the correct casing in `NavAllowedGroups` data.
-
-## ADR-014: Breadcrumb reads visible folders from a local React context
+## ADR-015: Breadcrumb reads visible folders from a local React context
 
 Date: 2026-04-27  
 Status: Accepted
@@ -292,7 +286,7 @@ Provide the visible folder structure from `TopNav` through a local React context
 - Folder labels stay aligned with the filtered nav actually being rendered.
 - `TopNav` owns one extra provider boundary for runtime nav state.
 
-## ADR-015: Language picker uses a temporary `lang` query parameter redirect
+## ADR-016: Language picker uses a temporary `lang` query parameter redirect
 
 Date: 2026-04-27  
 Status: Accepted
@@ -311,7 +305,7 @@ Use a temporary redirect that appends or updates a `lang` query parameter in the
 - The implementation stays isolated to the customizer until the SharePoint-native switch flow is added.
 - NAV work that integrates the real multilingual endpoint must replace this interim behavior.
 
-## ADR-016: Empty folders render as non-dropdown labels
+## ADR-017: Empty folders render as non-dropdown labels
 
 Date: 2026-04-27  
 Status: Accepted

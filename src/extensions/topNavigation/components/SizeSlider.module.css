@@ -1,0 +1,27 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.label {
+  font-size: 13px;
+  color: #323130;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.slider {
+  flex: 1;
+  cursor: pointer;
+  accent-color: #0078d4;
+}
+
+.value {
+  min-width: 32px;
+  text-align: right;
+  font-size: 13px;
+  color: #323130;
+  font-weight: 500;
+}

@@ -26,12 +26,12 @@ const NavItem = React.forwardRef<HTMLAnchorElement, NavItemProps>(function NavIt
       href={item.url}
       target={item.openInNewTab ? '_blank' : undefined}
       rel={item.openInNewTab ? 'noreferrer' : undefined}
-      aria-label={item.title}
+      aria-label={item.label}
       role={role}
       tabIndex={tabIndex}
       onClick={onActivate}
     >
-      <span className={styles.label}>{item.title}</span>
+      <span className={styles.label}>{item.label}</span>
       {item.description ? <span className={styles.description}>{item.description}</span> : null}
     </a>
   );

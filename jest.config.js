@@ -1,13 +1,14 @@
 module.exports = {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
-  setupFilesAfterFramework: ['@testing-library/jest-dom'],
+  setupFilesAfterEnv: ['@testing-library/jest-dom'],
   moduleNameMapper: {
     '\\.module\\.css$': '<rootDir>/src/__mocks__/styleMock.ts',
   },
   testMatch: ['**/*.test.ts', '**/*.test.tsx'],
+  modulePathIgnorePatterns: ['<rootDir>/lib/'],
   collectCoverageFrom: ['src/**/*.{ts,tsx}', '!src/**/*.d.ts', '!src/**/index.ts'],
-  coverageThresholds: {
+  coverageThreshold: {
     global: { lines: 60 },
     './src/extensions/topNavigation/hooks/': { lines: 80 },
   },

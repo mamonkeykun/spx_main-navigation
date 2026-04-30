@@ -10,6 +10,13 @@ type SelectInvoker = () => Promise<unknown>;
 
 interface MockList {
   select: (value: string) => SelectInvoker;
+  update: (properties: { EnableFolderCreation: boolean }) => Promise<unknown>;
+  defaultView: () => Promise<{ Id: string }>;
+  getView: (id: string) => {
+    fields: {
+      add: (name: string) => Promise<unknown>;
+    };
+  };
   fields: {
     addText: (name: string, properties: { Required: boolean }) => Promise<unknown>;
     addNumber: (name: string, properties: { Required: boolean }) => Promise<{
@@ -17,10 +24,6 @@ interface MockList {
         update: (properties: { DefaultValue: string }) => Promise<unknown>;
       };
     }>;
-    addMultilineText: (
-      name: string,
-      properties: { Required: boolean; NumberOfLines: number }
-    ) => Promise<unknown>;
     addBoolean: (name: string, properties: { Required: boolean }) => Promise<unknown>;
   };
 }
@@ -32,8 +35,7 @@ interface MockSp {
         title: string,
         description: string,
         template: number,
-        enableContentTypes: boolean,
-        properties: { EnableFolderCreation: boolean }
+        enableContentTypes: boolean
       ) => Promise<unknown>;
       getByTitle: (value: string) => MockList;
     };
@@ -42,7 +44,8 @@ interface MockSp {
 
 function createMockSp(
   listExists: boolean
-): { sp: MockSp; list: MockList; navOrderUpdateMock: ReturnType<typeof jest.fn> } {
+): { sp: MockSp; list: MockList; viewFieldAddMock: ReturnType<typeof jest.fn> } {
+  const viewFieldAddMock = jest.fn().mockResolvedValue(undefined);
   const navOrderUpdateMock = jest.fn().mockResolvedValue(undefined);
   const addTextMock = jest.fn().mockResolvedValue(undefined);
   const addNumberMock = jest.fn().mockImplementation(() =>
@@ -52,15 +55,23 @@ function createMockSp(
       },
     })
   );
-  const addMultilineTextMock = jest.fn().mockResolvedValue(undefined);
   const addBooleanMock = jest.fn().mockResolvedValue(undefined);
   const selectMock = jest.fn();
+  const updateMock = jest.fn().mockResolvedValue(undefined);
+  const defaultViewMock = jest.fn().mockResolvedValue({ Id: 'view-id' });
+  const getViewMock = jest.fn().mockReturnValue({
+    fields: {
+      add: viewFieldAddMock,
+    },
+  });
   const list = {
     select: selectMock,
+    update: updateMock,
+    defaultView: defaultViewMock,
+    getView: getViewMock,
     fields: {
       addText: addTextMock,
       addNumber: addNumberMock,
-      addMultilineText: addMultilineTextMock,
       addBoolean: addBooleanMock,
     },
   } as unknown as MockList;
@@ -83,7 +94,7 @@ function createMockSp(
     },
   } as unknown as MockSp;
 
-  return { sp, list, navOrderUpdateMock };
+  return { sp, list, viewFieldAddMock };
 }
 
 describe('provisionNavList', () => {
@@ -107,39 +118,32 @@ describe('provisionNavList', () => {
     expect(sp.web.lists.add).not.toHaveBeenCalled();
     expect(list.fields.addText).not.toHaveBeenCalled();
     expect(list.fields.addNumber).not.toHaveBeenCalled();
-    expect(list.fields.addMultilineText).not.toHaveBeenCalled();
     expect(list.fields.addBoolean).not.toHaveBeenCalled();
   });
 
-  it('provisionNavList creates list and all 6 columns when list is missing', async () => {
-    const { sp, list, navOrderUpdateMock } = createMockSp(false);
+  it('provisionNavList creates list and all 4 columns when list is missing', async () => {
+    const { sp, list, viewFieldAddMock } = createMockSp(false);
 
     await provisionNavList(sp as never);
 
-    expect(sp.web.lists.add).toHaveBeenCalledWith('Navigation', '', 100, false, {
-      EnableFolderCreation: true,
-    });
+    expect(sp.web.lists.add).toHaveBeenCalledWith('Navigation', '', 100, false);
+    expect(list.update).toHaveBeenCalledWith({ EnableFolderCreation: true });
     expect(list.fields.addText).toHaveBeenCalledTimes(2);
     expect(list.fields.addText).toHaveBeenNthCalledWith(1, 'NavUrl', { Required: false });
     expect(list.fields.addText).toHaveBeenNthCalledWith(2, 'NavDescription', {
       Required: false,
     });
-    expect(list.fields.addNumber).toHaveBeenCalledTimes(2);
-    expect(list.fields.addNumber).toHaveBeenNthCalledWith(1, 'NavOrder', {
+    expect(list.fields.addNumber).toHaveBeenCalledTimes(1);
+    expect(list.fields.addNumber).toHaveBeenCalledWith('NavOrder', {
       Required: false,
-    });
-    expect(list.fields.addNumber).toHaveBeenNthCalledWith(2, 'NavFolderId', {
-      Required: false,
-    });
-    expect(list.fields.addMultilineText).toHaveBeenCalledWith('NavAllowedGroups', {
-      Required: false,
-      NumberOfLines: 2,
     });
     expect(list.fields.addBoolean).toHaveBeenCalledWith('NavOpenInNewTab', {
       Required: false,
     });
-    expect(navOrderUpdateMock).toHaveBeenCalledWith({
-      DefaultValue: '0',
-    });
+    expect(viewFieldAddMock).toHaveBeenCalledTimes(4);
+    expect(viewFieldAddMock).toHaveBeenNthCalledWith(1, 'NavUrl');
+    expect(viewFieldAddMock).toHaveBeenNthCalledWith(2, 'NavDescription');
+    expect(viewFieldAddMock).toHaveBeenNthCalledWith(3, 'NavOrder');
+    expect(viewFieldAddMock).toHaveBeenNthCalledWith(4, 'NavOpenInNewTab');
   });
 });

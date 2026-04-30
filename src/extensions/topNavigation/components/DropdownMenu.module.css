@@ -2,12 +2,12 @@
   position: absolute;
   top: 100%;
   left: 0;
-  background: var(--nav-bg);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 8px;
-  min-width: 200px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  background: #ffffff;
+  border: 1px solid #edebe9;
+  border-radius: 6px;
+  padding: 6px;
+  min-width: 220px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
   z-index: 1001;
   animation: fadeIn 0.15s ease;
 }
@@ -23,20 +23,23 @@
   list-style: none;
 }
 
+.link,
 .linkReset {
   display: flex;
   flex-direction: column;
   padding: 8px 12px;
-  color: var(--nav-text);
+  color: #323130;
   text-decoration: none;
   border-radius: 4px;
   transition: background 0.15s ease, color 0.15s ease;
 }
 
+.link:hover,
+.link:focus-visible,
 .linkReset:hover,
 .linkReset:focus-visible {
-  background: rgba(255, 255, 255, 0.08);
-  color: var(--nav-hover);
+  background: #f3f2f1;
+  color: #0078d4;
   outline: none;
 }
 

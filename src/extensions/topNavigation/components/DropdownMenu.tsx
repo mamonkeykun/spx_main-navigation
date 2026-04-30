@@ -79,7 +79,7 @@ export default function DropdownMenu({
     <ul
       className={menuClassName}
       role="menu"
-      aria-label={ariaLabel ?? anchorRef.current?.textContent ?? 'Navigation menu'}
+      aria-label={ariaLabel ?? anchorRef.current?.textContent ?? 'ナビゲーションメニュー'}
       onKeyDown={handleKeyDown}
     >
       {items.map((item, index) => (

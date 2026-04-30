@@ -1,0 +1,109 @@
+.wrapper {
+  position: relative;
+  margin-bottom: 16px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.label {
+  font-size: 13px;
+  color: var(--nav-text, #323130);
+  min-width: 160px;
+}
+
+.swatch {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 0, 0, 0.15);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.15s;
+}
+
+.swatch:hover {
+  border-color: rgba(0, 0, 0, 0.4);
+}
+
+.picker {
+  position: absolute;
+  left: 0;
+  top: 44px;
+  width: 260px;
+  background: #fff;
+  border: 1px solid #edebe9;
+  border-radius: 8px;
+  padding: 12px;
+  z-index: 2000;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.canvas {
+  width: 100%;
+  height: 160px;
+  border-radius: 4px;
+  position: relative;
+  cursor: crosshair;
+  margin-bottom: 10px;
+}
+
+.cursor {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.3);
+  pointer-events: none;
+}
+
+.hueSlider {
+  width: 100%;
+  margin-bottom: 10px;
+  cursor: pointer;
+  background: linear-gradient(to right, #f00, #ff0, #0f0, #0ff, #00f, #f0f, #f00);
+  -webkit-appearance: none;
+  height: 12px;
+  border-radius: 6px;
+}
+
+.hueSlider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #fff;
+  border: 2px solid rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+
+.inputs {
+  display: flex;
+  gap: 6px;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.inputLabel {
+  font-size: 10px;
+  color: #605e5c;
+  margin-bottom: 2px;
+}
+
+.inputField {
+  width: 100%;
+  border: 1px solid #edebe9;
+  border-radius: 3px;
+  padding: 3px 4px;
+  font-size: 12px;
+  text-align: center;
+}

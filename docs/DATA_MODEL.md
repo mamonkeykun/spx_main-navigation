@@ -1,54 +1,60 @@
 # Data Model
 
-## TypeScript Types
+## TypeScript 型定義
 
-The following interfaces define the shared contract for the Application Customizer, Settings Web Part, and supporting hooks.
+### NavFolder
 
-```typescript
-export type NavLogoSize = 'small' | 'medium' | 'large';
-export type NavFontSize = 'sm' | 'md' | 'lg';
-export type DropdownLayout = 'vertical' | 'horizontal';
+SharePoint Navigation リストのフォルダ（`FSObjType = 1`）に対応します。  
+表示制御は SharePoint のアイテムレベル権限で行います。
 
+```ts
+export interface NavFolder {
+  id: string;
+  spItemId: number;
+  label: string;
+  url?: string;
+  order: number;
+  folderPath: string;
+}
+```
+
+### NavItem
+
+SharePoint Navigation リストのアイテム（`FSObjType = 0`）に対応します。  
+表示制御は SharePoint のアイテムレベル権限で行います。
+
+```ts
 export interface NavItem {
-  id: number;
-  title: string;
+  id: string;
+  spItemId: number;
+  label: string;
   url: string;
   description?: string;
   order: number;
-  folderId?: number;
-  allowedGroups: string[];
+  parentFolderPath: string;
   openInNewTab: boolean;
 }
+```
 
-export interface NavFolder {
-  id: number;
-  title: string;
-  order: number;
-  allowedGroups: string[];
-  items: NavItem[];
-}
+### NavConfig
 
-export interface NavConfigVersion {
+Web Properties バッグの `OrigamiNavConfig` に JSON 文字列として保存します。
+
+```ts
+export interface NavConfig {
   version: number;
-}
-
-export interface NavConfig extends NavConfigVersion {
-  logoUrl: string;
-  logoSize: NavLogoSize;
+  logoUrl?: string;
+  logoSize: number;
   backgroundColor: string;
   textColor: string;
   hoverColor: string;
-  accentColor: string;
-  fontSize: NavFontSize;
-  fontFamily: string;
-  dropdownLayout: DropdownLayout;
-  showBreadcrumb: boolean;
-  breadcrumbFontSize: NavFontSize;
+  fontSize: number;
   hideSharePointNav: boolean;
+  showBreadcrumb: boolean;
+  breadcrumbFontSize: number;
   showLanguagePicker: boolean;
-  availableLanguages: string[];
-  currentLanguage: string;
-  sourceUrl: string;
+  dropdownLayout: 'vertical' | 'horizontal';
+  sourceUrl?: string;
 }
 ```
 
@@ -56,48 +62,36 @@ Current config schema version: `1`
 
 ## SharePoint List: Navigation
 
-| Internal name | Display name | Type | Required | Notes |
+### 重要: アーキテクチャ前提
+
+- トップレベルナビラベルは SharePoint リストフォルダ（`FSObjType = 1`）
+- 子アイテムはフォルダ内のリストアイテム（`FSObjType = 0`）
+- 権限制御は SharePoint の「アクセスの管理」を使用
+- `NavAllowedGroups` 列は存在しない
+- `NavFolderId` 列は存在しない
+
+### 列定義
+
+| 内部名 | 表示名 | 型 | 必須 | 説明 |
 |---|---|---|---|---|
-| Title | Label | Single line text | Yes | Nav label shown in UI |
-| NavUrl | URL | Single line text | No | Absolute or relative URL |
-| NavDescription | Description | Single line text | No | Subtitle in dropdown |
-| NavOrder | Order | Number | Yes | Sort order within folder |
-| NavFolderId | Folder ID | Number | No | SP item ID of parent folder |
-| NavAllowedGroups | Allowed groups | Multiple lines | No | JSON array of group names |
-| NavOpenInNewTab | Open in new tab | Yes/No | No | Default: No |
+| Title | ラベル | 1行テキスト | はい | ナビに表示する名称 |
+| NavUrl | URL | 1行テキスト | いいえ | リンク URL。フォルダでは任意 |
+| NavDescription | 説明 | 1行テキスト | いいえ | ドロップダウンのサブテキスト |
+| NavOrder | 並び順 | 数値 | いいえ | 表示順 |
+| NavOpenInNewTab | 新しいタブで開く | はい/いいえ | いいえ | デフォルト: いいえ |
 
-Implementation notes:
+### 存在しない列
 
-- Folder rows should either be stored as SharePoint folders or as list items marked with folder metadata; the runtime must normalize both into `NavFolder`.
-- `NavOrder` is authoritative for sorting.
-- `NavFolderId` is empty for top-level links and folder rows.
-- `NavAllowedGroups` stores a JSON string, not a lookup or People field.
+- ~~NavAllowedGroups~~: SharePoint ネイティブ権限を使うため不要
+- ~~NavFolderId~~: `FileDirRef` ベースのネイティブフォルダ構造を使うため不要
+
+### `FileDirRef` の役割
+
+- フォルダではフォルダ自体のサーバー相対パスを表します
+- アイテムでは親フォルダのサーバー相対パスを表します
+- `useNavData.ts` は `FileDirRef` を使ってフォルダとアイテムを関連付けます
 
 ## Web Properties Config Schema
 
 - Key: `OrigamiNavConfig`
-- Value: JSON string of the `NavConfig` interface
-
-Example stored JSON:
-
-```json
-{
-  "version": 1,
-  "logoUrl": "https://tenant.sharepoint.com/sites/intranet/assets/logo.png",
-  "logoSize": "medium",
-  "backgroundColor": "#0F172A",
-  "textColor": "#F8FAFC",
-  "hoverColor": "#38BDF8",
-  "accentColor": "#0EA5E9",
-  "fontSize": "md",
-  "fontFamily": "system-ui",
-  "dropdownLayout": "vertical",
-  "showBreadcrumb": false,
-  "breadcrumbFontSize": "sm",
-  "hideSharePointNav": true,
-  "showLanguagePicker": false,
-  "availableLanguages": [],
-  "currentLanguage": "ja",
-  "sourceUrl": ""
-}
-```
+- Value: `NavConfig` の JSON 文字列

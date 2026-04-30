@@ -58,6 +58,7 @@ export default function NavFolder({
   };
 
   const triggerClassName = isOpen ? `${styles.trigger} ${styles.triggerOpen}` : styles.trigger;
+  const hasLandingPage = typeof folder.url === 'string' && folder.url.trim() !== '';
 
   return (
     <div
@@ -72,23 +73,35 @@ export default function NavFolder({
         className={triggerClassName}
         aria-expanded={hasItems ? isOpen : undefined}
         aria-haspopup={hasItems ? 'menu' : undefined}
-        aria-label={folder.title}
+        aria-label={folder.label}
         onClick={() => {
-          // DECISION: The shared NavFolder type has no URL, so empty folders stay as non-dropdown labels.
           if (hasItems) {
             setIsOpen((current) => !current);
+          } else if (hasLandingPage) {
+            window.location.assign(folder.url as string);
           }
         }}
         onKeyDown={handleTriggerKeyDown}
       >
-        {folder.title}
+        {folder.label}
+        {hasItems && !isOpen ? <span className={styles.chevron} aria-hidden="true">∨</span> : null}
       </button>
+      {isOpen && hasItems ? (
+        <button
+          type="button"
+          className={styles.closeBtn}
+          onClick={() => setIsOpen(false)}
+          aria-label={`${folder.label}を閉じる`}
+        >
+          ✕
+        </button>
+      ) : null}
       <DropdownMenu
         items={items}
         layout={dropdownLayout}
         isOpen={isOpen}
         anchorRef={triggerRef}
-        ariaLabel={folder.title}
+        ariaLabel={folder.label}
         onRequestClose={() => setIsOpen(false)}
       />
     </div>
