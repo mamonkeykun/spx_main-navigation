@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import type { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { spfi, SPFx } from '@pnp/sp';
 import type { IListItemFormUpdateValue } from '@pnp/sp/lists';
 import '@pnp/sp/webs';
@@ -11,9 +10,10 @@ import '@pnp/sp/files';
 import type { NavFolder, NavItem } from '../types/navTypes';
 import { NavItemEditorForm } from './NavItemEditorForm';
 import styles from './NavItemEditor.module.css';
+import type { SpfxContext } from '../../../shared/spfxContext';
 
 interface NavItemEditorProps {
-  context: ApplicationCustomizerContext;
+  context: SpfxContext;
   folders: NavFolder[];
   items: NavItem[];
   onClose: () => void;

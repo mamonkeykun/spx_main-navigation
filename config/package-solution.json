@@ -16,10 +16,10 @@
     },
     "metadata": {
       "shortDescription": {
-        "default": "SPFx Top Navigation with targeting"
+        "default": "Origami 風トップナビゲーション"
       },
       "longDescription": {
-        "default": "Application Customizer for Origami-style SharePoint top navigation"
+        "default": "設定 Web パーツと Application Customizer で構成される SharePoint 用トップナビゲーション"
       },
       "screenshotPaths": [],
       "videoUrl": "",
@@ -27,12 +27,13 @@
     },
     "features": [
       {
-        "title": "spfx-top-navigation Feature",
-        "description": "Installs the Top Navigation Application Customizer",
+        "title": "トップナビゲーション機能",
+        "description": "トップナビゲーション拡張と設定 Web パーツを提供します",
         "id": "3c49e171-418f-4b31-8b8b-4e54397d63cc",
         "version": "1.0.0.0",
         "componentIds": [
-          "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc"
+          "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc",
+          "8974e9a7-87e4-48c8-998d-6be14f15713b"
         ]
       }
     ]

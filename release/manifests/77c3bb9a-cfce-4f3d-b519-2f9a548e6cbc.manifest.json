@@ -9,10 +9,10 @@
   "safeWithCustomScript": false,
   "servedFromLocalhost": true,
   "title": {
-    "default": "Top Navigation"
+    "default": "トップナビゲーション"
   },
   "description": {
-    "default": "Custom top navigation with permission-based targeting"
+    "default": "Origami 風のトップナビゲーション拡張"
   },
   "loaderConfig": {
     "internalModuleBaseUrls": [

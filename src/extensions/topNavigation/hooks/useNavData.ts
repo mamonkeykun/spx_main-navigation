@@ -1,5 +1,4 @@
 import { useState, useEffect, useMemo, useCallback } from 'react';
-import type { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { spfi, SPFx, type SPFI } from '@pnp/sp';
 import '@pnp/sp/webs';
 import '@pnp/sp/lists';
@@ -7,6 +6,7 @@ import '@pnp/sp/items';
 import '@pnp/sp/folders';
 
 import type { NavFolder, NavItem } from '../types/navTypes';
+import type { SpfxContext } from '../../../shared/spfxContext';
 
 const LIST_TITLE = 'Navigation';
 
@@ -21,7 +21,7 @@ export interface UseNavDataResult {
 }
 
 export function useNavData(
-  context: ApplicationCustomizerContext,
+  context: SpfxContext,
   sourceUrl?: string
 ): UseNavDataResult {
   const [folders, setFolders] = useState<NavFolder[]>([]);

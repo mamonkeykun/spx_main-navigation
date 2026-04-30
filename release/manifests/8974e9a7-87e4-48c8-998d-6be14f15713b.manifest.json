@@ -6,20 +6,20 @@
   "manifestVersion": 2,
   "requiresCustomScript": false,
   "safeWithCustomScript": false,
-  "servedFromLocalhost": true,
+  "supportsFullBleed": false,
   "preconfiguredEntries": [
     {
       "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
       "group": {
-        "default": "Advanced"
+        "default": "高度な設定"
       },
       "title": {
-        "default": "Navigation Settings"
+        "default": "ナビゲーション設定"
       },
       "description": {
-        "default": "Configure the Top Navigation appearance and items"
+        "default": "トップナビゲーションの見た目とアイテムを設定します"
       },
-      "officeFabricIconFontName": "Nav",
+      "officeFabricIconFontName": "Nav2DMapView",
       "properties": {}
     }
   ],
@@ -46,6 +46,11 @@
       "@microsoft/sp-webpart-base": {
         "type": "component",
         "id": "974a7777-0990-4136-8fa6-95d80114c2e0",
+        "version": "1.20.0"
+      },
+      "@microsoft/sp-property-pane": {
+        "type": "component",
+        "id": "f9e737b7-f0df-4597-ba8c-3060f82380db",
         "version": "1.20.0"
       }
     }

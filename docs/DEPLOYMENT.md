@@ -24,7 +24,7 @@ gulp package-solution --ship
 
 1. Navigate to the tenant App Catalog.
 2. Upload the generated `.sppkg` package.
-3. Choose whether to make the solution tenant-wide or keep it site-specific.
+3. Keep the deployment site-scoped if you want to control which sites use the top navigation.
 4. Confirm deployment.
 
 Suggested screenshot references for internal documentation packs:
@@ -35,19 +35,13 @@ Suggested screenshot references for internal documentation packs:
 
 ## Activating on a Site
 
-For tenant-wide deployment:
-
-- The package is available automatically on all supported sites.
-- The Application Customizer can be associated through tenant-wide deployment settings or site-level registration, depending on the SPFx packaging strategy.
-
-For site-specific deployment:
-
 1. Open `Site Settings`.
 2. Go to `Add an App`.
-3. Find `Top Navigation Solution`.
+3. Find `Origami 風トップナビゲーション`.
 4. Install the app.
-5. Create the `Navigation` list if provisioning has not done so automatically.
-6. Add the Settings Web Part to an admin page for configuration.
+5. Add the `ナビゲーション設定` Web パーツ to an admin page for configuration.
+6. Run `scripts\provision-navigation-list.ps1` if the `Navigation` list does not exist yet.
+7. Run `scripts\install-customizer.ps1` to enable the top bar on the site.
 
 ## Navigation List Provisioning
 
@@ -74,8 +68,6 @@ $fields = @(
   @{ DisplayName = "URL"; InternalName = "NavUrl"; Type = "Text" },
   @{ DisplayName = "Description"; InternalName = "NavDescription"; Type = "Text" },
   @{ DisplayName = "Order"; InternalName = "NavOrder"; Type = "Number" },
-  @{ DisplayName = "Folder ID"; InternalName = "NavFolderId"; Type = "Number" },
-  @{ DisplayName = "Allowed groups"; InternalName = "NavAllowedGroups"; Type = "Note" },
   @{ DisplayName = "Open in new tab"; InternalName = "NavOpenInNewTab"; Type = "Boolean" }
 )
 
@@ -90,13 +82,9 @@ foreach ($field in $fields) {
   }
 }
 
-# Example: break inheritance and grant read to members, edit to owners.
-Set-PnPList -Identity $listTitle -BreakRoleInheritance -CopyRoleAssignments -ClearSubscopes
-Set-PnPListPermission -Identity $listTitle -Group "Site Members" -AddRole "Read"
-Set-PnPListPermission -Identity $listTitle -Group "Site Owners" -AddRole "Edit"
 ```
 
-Review the group names for the target site before running the permission commands. Some tenants use localized default group names.
+Folders are used as top-level navigation labels. Create folders directly in the `Navigation` list and move link items into those folders. Visibility is controlled by standard SharePoint item or folder permissions.
 
 ## Updating an Existing Deployment
 
@@ -104,7 +92,7 @@ Review the group names for the target site before running the permission command
 2. Re-run the production build steps.
 3. Upload the new `.sppkg` and overwrite the existing package.
 4. Click `Replace it` in the App Catalog.
-5. No user action is needed; the extension updates automatically after SharePoint propagates the new package.
+5. If the site already has the app installed and the customizer registered, no extra site action is needed.
 
 ## Rollback
 
@@ -128,13 +116,12 @@ Install-Module PnP.PowerShell -Scope CurrentUser
 1. `.sppkg` をビルドして App Catalog にアップロードする
 2. 各対象サイトで `provision-navigation-list.ps1` を実行する
 3. 各対象サイトで `install-customizer.ps1` を実行する
-4. 各サイトの管理ページに Settings Web パーツを追加する
+4. 各サイトの管理ページに `ナビゲーション設定` Web パーツを追加する
 
 使用例:
 
 ```powershell
 .\scripts\provision-navigation-list.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet"
-.\scripts\install-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "00000000-0000-0000-0000-000000000000"
-.\scripts\install-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "00000000-0000-0000-0000-000000000000" -Tenant
-.\scripts\remove-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "00000000-0000-0000-0000-000000000000"
+.\scripts\install-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc"
+.\scripts\remove-customizer.ps1 -SiteUrl "https://tenant.sharepoint.com/sites/intranet" -CustomizerGuid "77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc"
 ```

@@ -1,0 +1,27 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
+  "id": "8974e9a7-87e4-48c8-998d-6be14f15713b",
+  "alias": "NavSettingsWebPart",
+  "componentType": "WebPart",
+  "version": "*",
+  "manifestVersion": 2,
+  "requiresCustomScript": false,
+  "safeWithCustomScript": false,
+  "supportsFullBleed": false,
+  "preconfiguredEntries": [
+    {
+      "groupId": "5c03119e-3074-46fd-976b-c60198311f70",
+      "group": {
+        "default": "高度な設定"
+      },
+      "title": {
+        "default": "ナビゲーション設定"
+      },
+      "description": {
+        "default": "トップナビゲーションの見た目とアイテムを設定します"
+      },
+      "officeFabricIconFontName": "Nav2DMapView",
+      "properties": {}
+    }
+  ]
+}

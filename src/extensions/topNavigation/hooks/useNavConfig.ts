@@ -1,9 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import type { ApplicationCustomizerContext } from '@microsoft/sp-application-base';
 import { spfi, SPFx } from '@pnp/sp';
 import '@pnp/sp/webs';
 
 import { DEFAULT_NAV_CONFIG, type NavConfig } from '../types/navTypes';
+import type { SpfxContext } from '../../../shared/spfxContext';
 
 interface UseNavConfigResult {
   config: NavConfig;
@@ -14,7 +14,7 @@ interface UseNavConfigResult {
 const CONFIG_KEY = 'OrigamiNavConfig';
 
 export function useNavConfig(
-  context: ApplicationCustomizerContext
+  context: SpfxContext
 ): UseNavConfigResult {
   const [config, setConfig] = useState<NavConfig>(DEFAULT_NAV_CONFIG);
   const [loading, setLoading] = useState(true);

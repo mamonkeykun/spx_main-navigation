@@ -323,3 +323,22 @@ Render empty folders as top-level labels that do not open a dropdown.
 - The UI remains faithful to the current data model.
 - Empty folders do not trigger broken or fabricated links.
 - If clickable empty folders are required later, the shared type contract must be extended first.
+
+## ADR-018: Restore the settings web part as the admin entry point
+
+Date: 2026-04-30  
+Status: Accepted
+
+### Context
+
+The Origami reference flow includes a visible settings web part in addition to the site-wide Application Customizer. Removing the web part left admins without an in-page entry point to edit configuration or navigation items.
+
+### Decision
+
+Restore a dedicated `ナビゲーション設定` web part that reuses the shared hooks and editor components, while keeping the actual top bar rendering in the Application Customizer.
+
+### Consequences
+
+- Admins can configure navigation from a normal SharePoint page again.
+- The runtime top bar and the admin surface now share the same stored config and list data.
+- Site-wide display still requires `install-customizer.ps1` to register the Application Customizer.

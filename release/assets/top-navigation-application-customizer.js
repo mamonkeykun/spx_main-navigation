@@ -1,15 +1,15 @@
-define("77c3bb9a-cfce-4f3d-b519-2f9a548e6cbc_1.0.0", ["@microsoft/decorators","react","react-dom","@microsoft/sp-application-base"], (__WEBPACK_EXTERNAL_MODULE__1138__, __WEBPACK_EXTERNAL_MODULE__2650__, __WEBPACK_EXTERNAL_MODULE__2729__, __WEBPACK_EXTERNAL_MODULE__8023__) => { return /******/ (() => { // webpackBootstrap
+define(["@microsoft/decorators","react","react-dom","@microsoft/sp-application-base"], (__WEBPACK_EXTERNAL_MODULE__91138__, __WEBPACK_EXTERNAL_MODULE__12650__, __WEBPACK_EXTERNAL_MODULE__12729__, __WEBPACK_EXTERNAL_MODULE__8023__) => { return /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 5512:
+/***/ 95512:
 /*!***********************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/Breadcrumb.module.css ***!
   \***********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -18,14 +18,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 7915:
+/***/ 47915:
 /*!************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/ColorPicker.module.css ***!
   \************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -34,14 +34,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 4985:
+/***/ 54985:
 /*!*************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/DropdownMenu.module.css ***!
   \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -50,14 +50,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 4562:
+/***/ 64562:
 /*!***************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/LanguagePicker.module.css ***!
   \***************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -66,14 +66,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 342:
+/***/ 80342:
 /*!*************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/MobileDrawer.module.css ***!
   \*************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -82,14 +82,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 7001:
+/***/ 27001:
 /*!**********************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/NavFolder.module.css ***!
   \**********************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -105,7 +105,7 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -114,14 +114,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 8846:
+/***/ 38846:
 /*!**************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/NavItemEditor.module.css ***!
   \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -130,14 +130,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 4846:
+/***/ 44846:
 /*!**************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/SettingsPanel.module.css ***!
   \**************************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -153,7 +153,7 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -162,14 +162,14 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 2411:
+/***/ 42411:
 /*!*******************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/TopNav.module.css ***!
   \*******************************************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 __webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 4726);
+/* harmony import */ var _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_lib_es6_index_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../../node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js */ 94726);
 // Imports
 
 
@@ -178,7 +178,7 @@ _node_modules_microsoft_sp_css_loader_node_modules_microsoft_load_themed_styles_
 
 /***/ }),
 
-/***/ 1188:
+/***/ 81188:
 /*!****************************************************************************!*\
   !*** ./lib/extensions/topNavigation/TopNavigationApplicationCustomizer.js ***!
   \****************************************************************************/
@@ -192,11 +192,11 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const decorators_1 = __webpack_require__(/*! @microsoft/decorators */ 1138);
-const React = __webpack_require__(/*! react */ 2650);
-const ReactDom = __webpack_require__(/*! react-dom */ 2729);
+const decorators_1 = __webpack_require__(/*! @microsoft/decorators */ 91138);
+const React = __webpack_require__(/*! react */ 12650);
+const ReactDom = __webpack_require__(/*! react-dom */ 12729);
 const sp_application_base_1 = __webpack_require__(/*! @microsoft/sp-application-base */ 8023);
-const TopNav_1 = __webpack_require__(/*! ./components/TopNav */ 8852);
+const TopNav_1 = __webpack_require__(/*! ./components/TopNav */ 38852);
 class TopNavigationApplicationCustomizer extends sp_application_base_1.BaseApplicationCustomizer {
     constructor() {
         super(...arguments);
@@ -234,7 +234,7 @@ exports["default"] = TopNavigationApplicationCustomizer;
 
 /***/ }),
 
-/***/ 6854:
+/***/ 26854:
 /*!***************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/Breadcrumb.js ***!
   \***************************************************************/
@@ -242,9 +242,9 @@ exports["default"] = TopNavigationApplicationCustomizer;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __webpack_require__(/*! react */ 2650);
-const NavStructureContext_1 = __webpack_require__(/*! ./NavStructureContext */ 3658);
-const Breadcrumb_module_css_1 = __webpack_require__(/*! ./Breadcrumb.module.css */ 5512);
+const React = __webpack_require__(/*! react */ 12650);
+const NavStructureContext_1 = __webpack_require__(/*! ./NavStructureContext */ 73658);
+const Breadcrumb_module_css_1 = __webpack_require__(/*! ./Breadcrumb.module.css */ 95512);
 /**
  * Resolves the most specific matching nav item for the current location.
  */
@@ -288,7 +288,7 @@ exports["default"] = Breadcrumb;
 
 /***/ }),
 
-/***/ 4189:
+/***/ 54189:
 /*!****************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/ColorPicker.js ***!
   \****************************************************************/
@@ -297,11 +297,11 @@ exports["default"] = Breadcrumb;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ColorPicker = void 0;
-const React = __webpack_require__(/*! react */ 2650);
-const react_1 = __webpack_require__(/*! react */ 2650);
-const ColorPickerPanel_1 = __webpack_require__(/*! ./ColorPickerPanel */ 6232);
-const ColorPicker_module_css_1 = __webpack_require__(/*! ./ColorPicker.module.css */ 7915);
-const colorUtils_1 = __webpack_require__(/*! ../utils/colorUtils */ 8634);
+const React = __webpack_require__(/*! react */ 12650);
+const react_1 = __webpack_require__(/*! react */ 12650);
+const ColorPickerPanel_1 = __webpack_require__(/*! ./ColorPickerPanel */ 56232);
+const ColorPicker_module_css_1 = __webpack_require__(/*! ./ColorPicker.module.css */ 47915);
+const colorUtils_1 = __webpack_require__(/*! ../utils/colorUtils */ 48634);
 /**
  * HSVカラーピッカーのトリガー部分。
  * パネル本体と色変換ロジックは別ファイルへ分割している。
@@ -368,7 +368,7 @@ exports.ColorPicker = ColorPicker;
 
 /***/ }),
 
-/***/ 6232:
+/***/ 56232:
 /*!*********************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/ColorPickerPanel.js ***!
   \*********************************************************************/
@@ -377,9 +377,9 @@ exports.ColorPicker = ColorPicker;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ColorPickerPanel = void 0;
-const React = __webpack_require__(/*! react */ 2650);
-const ColorPicker_module_css_1 = __webpack_require__(/*! ./ColorPicker.module.css */ 7915);
-const colorUtils_1 = __webpack_require__(/*! ../utils/colorUtils */ 8634);
+const React = __webpack_require__(/*! react */ 12650);
+const ColorPicker_module_css_1 = __webpack_require__(/*! ./ColorPicker.module.css */ 47915);
+const colorUtils_1 = __webpack_require__(/*! ../utils/colorUtils */ 48634);
 const CHANNEL_LABELS = {
     r: '赤',
     g: '緑',
@@ -423,9 +423,9 @@ exports.ColorPickerPanel = ColorPickerPanel;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __webpack_require__(/*! react */ 2650);
+const React = __webpack_require__(/*! react */ 12650);
 const NavItem_1 = __webpack_require__(/*! ./NavItem */ 8552);
-const DropdownMenu_module_css_1 = __webpack_require__(/*! ./DropdownMenu.module.css */ 4985);
+const DropdownMenu_module_css_1 = __webpack_require__(/*! ./DropdownMenu.module.css */ 54985);
 /**
  * Moves focus through a list of interactive dropdown items.
  */
@@ -481,7 +481,7 @@ exports["default"] = DropdownMenu;
 
 /***/ }),
 
-/***/ 3770:
+/***/ 83770:
 /*!*******************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/LanguagePicker.js ***!
   \*******************************************************************/
@@ -489,8 +489,8 @@ exports["default"] = DropdownMenu;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __webpack_require__(/*! react */ 2650);
-const LanguagePicker_module_css_1 = __webpack_require__(/*! ./LanguagePicker.module.css */ 4562);
+const React = __webpack_require__(/*! react */ 12650);
+const LanguagePicker_module_css_1 = __webpack_require__(/*! ./LanguagePicker.module.css */ 64562);
 /**
  * Moves focus through language options in the open picker.
  */
@@ -578,10 +578,10 @@ exports["default"] = LanguagePicker;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __webpack_require__(/*! react */ 2650);
-const LanguagePicker_1 = __webpack_require__(/*! ./LanguagePicker */ 3770);
+const React = __webpack_require__(/*! react */ 12650);
+const LanguagePicker_1 = __webpack_require__(/*! ./LanguagePicker */ 83770);
 const NavItem_1 = __webpack_require__(/*! ./NavItem */ 8552);
-const MobileDrawer_module_css_1 = __webpack_require__(/*! ./MobileDrawer.module.css */ 342);
+const MobileDrawer_module_css_1 = __webpack_require__(/*! ./MobileDrawer.module.css */ 80342);
 /**
  * Renders the mobile navigation drawer with accordion folders.
  */
@@ -666,7 +666,7 @@ exports["default"] = MobileDrawer;
 
 /***/ }),
 
-/***/ 666:
+/***/ 90666:
 /*!**************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/NavFolder.js ***!
   \**************************************************************/
@@ -674,9 +674,9 @@ exports["default"] = MobileDrawer;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __webpack_require__(/*! react */ 2650);
+const React = __webpack_require__(/*! react */ 12650);
 const DropdownMenu_1 = __webpack_require__(/*! ./DropdownMenu */ 6558);
-const NavFolder_module_css_1 = __webpack_require__(/*! ./NavFolder.module.css */ 7001);
+const NavFolder_module_css_1 = __webpack_require__(/*! ./NavFolder.module.css */ 27001);
 /**
  * Renders a top-level folder trigger and manages its dropdown state.
  */
@@ -743,7 +743,7 @@ exports["default"] = NavFolder;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const React = __webpack_require__(/*! react */ 2650);
+const React = __webpack_require__(/*! react */ 12650);
 const NavItem_module_css_1 = __webpack_require__(/*! ./NavItem.module.css */ 5308);
 /**
  * Renders a navigation link with optional secondary description text.
@@ -759,7 +759,7 @@ exports["default"] = NavItem;
 
 /***/ }),
 
-/***/ 3065:
+/***/ 23065:
 /*!******************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/NavItemEditor.js ***!
   \******************************************************************/
@@ -768,16 +768,16 @@ exports["default"] = NavItem;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.NavItemEditor = void 0;
-const React = __webpack_require__(/*! react */ 2650);
-const react_1 = __webpack_require__(/*! react */ 2650);
-const sp_1 = __webpack_require__(/*! @pnp/sp */ 7881);
-__webpack_require__(/*! @pnp/sp/webs */ 3867);
-__webpack_require__(/*! @pnp/sp/lists */ 2033);
+const React = __webpack_require__(/*! react */ 12650);
+const react_1 = __webpack_require__(/*! react */ 12650);
+const sp_1 = __webpack_require__(/*! @pnp/sp */ 87881);
+__webpack_require__(/*! @pnp/sp/webs */ 73867);
+__webpack_require__(/*! @pnp/sp/lists */ 92033);
 __webpack_require__(/*! @pnp/sp/items */ 9721);
-__webpack_require__(/*! @pnp/sp/folders */ 6267);
+__webpack_require__(/*! @pnp/sp/folders */ 86267);
 __webpack_require__(/*! @pnp/sp/files */ 7901);
-const NavItemEditorForm_1 = __webpack_require__(/*! ./NavItemEditorForm */ 8850);
-const NavItemEditor_module_css_1 = __webpack_require__(/*! ./NavItemEditor.module.css */ 8846);
+const NavItemEditorForm_1 = __webpack_require__(/*! ./NavItemEditorForm */ 18850);
+const NavItemEditor_module_css_1 = __webpack_require__(/*! ./NavItemEditor.module.css */ 38846);
 function toFormValues(itemData) {
     var _a;
     return [
@@ -907,7 +907,7 @@ exports.NavItemEditor = NavItemEditor;
 
 /***/ }),
 
-/***/ 8850:
+/***/ 18850:
 /*!**********************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/NavItemEditorForm.js ***!
   \**********************************************************************/
@@ -916,8 +916,8 @@ exports.NavItemEditor = NavItemEditor;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.NavItemEditorForm = void 0;
-const React = __webpack_require__(/*! react */ 2650);
-const NavItemEditor_module_css_1 = __webpack_require__(/*! ./NavItemEditor.module.css */ 8846);
+const React = __webpack_require__(/*! react */ 12650);
+const NavItemEditor_module_css_1 = __webpack_require__(/*! ./NavItemEditor.module.css */ 38846);
 /**
  * ナビアイテム編集フォーム。
  */
@@ -957,7 +957,7 @@ exports.NavItemEditorForm = NavItemEditorForm;
 
 /***/ }),
 
-/***/ 3658:
+/***/ 73658:
 /*!************************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/NavStructureContext.js ***!
   \************************************************************************/
@@ -966,7 +966,7 @@ exports.NavItemEditorForm = NavItemEditorForm;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.useNavStructure = void 0;
-const react_1 = __webpack_require__(/*! react */ 2650);
+const react_1 = __webpack_require__(/*! react */ 12650);
 const NavStructureContext = (0, react_1.createContext)([]);
 /**
  * Returns the current visible folder structure for breadcrumb rendering.
@@ -980,7 +980,7 @@ exports["default"] = NavStructureContext;
 
 /***/ }),
 
-/***/ 2513:
+/***/ 72513:
 /*!******************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/SettingsPanel.js ***!
   \******************************************************************/
@@ -989,11 +989,11 @@ exports["default"] = NavStructureContext;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SettingsPanel = void 0;
-const React = __webpack_require__(/*! react */ 2650);
-const react_1 = __webpack_require__(/*! react */ 2650);
-const ColorPicker_1 = __webpack_require__(/*! ./ColorPicker */ 4189);
-const SizeSlider_1 = __webpack_require__(/*! ./SizeSlider */ 300);
-const SettingsPanel_module_css_1 = __webpack_require__(/*! ./SettingsPanel.module.css */ 4846);
+const React = __webpack_require__(/*! react */ 12650);
+const react_1 = __webpack_require__(/*! react */ 12650);
+const ColorPicker_1 = __webpack_require__(/*! ./ColorPicker */ 54189);
+const SizeSlider_1 = __webpack_require__(/*! ./SizeSlider */ 70300);
+const SettingsPanel_module_css_1 = __webpack_require__(/*! ./SettingsPanel.module.css */ 44846);
 const SettingsPanel = ({ config, onSave, onClose, saving, }) => {
     var _a, _b;
     const [draft, setDraft] = (0, react_1.useState)({ ...config });
@@ -1035,7 +1035,7 @@ exports.SettingsPanel = SettingsPanel;
 
 /***/ }),
 
-/***/ 300:
+/***/ 70300:
 /*!***************************************************************!*\
   !*** ./lib/extensions/topNavigation/components/SizeSlider.js ***!
   \***************************************************************/
@@ -1044,7 +1044,7 @@ exports.SettingsPanel = SettingsPanel;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.SizeSlider = void 0;
-const React = __webpack_require__(/*! react */ 2650);
+const React = __webpack_require__(/*! react */ 12650);
 const SizeSlider_module_css_1 = __webpack_require__(/*! ./SizeSlider.module.css */ 3472);
 const SizeSlider = ({ label, value, min, max, onChange, }) => (React.createElement("div", { className: SizeSlider_module_css_1.default.wrapper },
     React.createElement("span", { className: SizeSlider_module_css_1.default.label }, label),
@@ -1055,7 +1055,7 @@ exports.SizeSlider = SizeSlider;
 
 /***/ }),
 
-/***/ 8852:
+/***/ 38852:
 /*!***********************************************************!*\
   !*** ./lib/extensions/topNavigation/components/TopNav.js ***!
   \***********************************************************/
@@ -1064,19 +1064,19 @@ exports.SizeSlider = SizeSlider;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.TopNav = void 0;
-const React = __webpack_require__(/*! react */ 2650);
-const Breadcrumb_1 = __webpack_require__(/*! ./Breadcrumb */ 6854);
-const LanguagePicker_1 = __webpack_require__(/*! ./LanguagePicker */ 3770);
+const React = __webpack_require__(/*! react */ 12650);
+const Breadcrumb_1 = __webpack_require__(/*! ./Breadcrumb */ 26854);
+const LanguagePicker_1 = __webpack_require__(/*! ./LanguagePicker */ 83770);
 const MobileDrawer_1 = __webpack_require__(/*! ./MobileDrawer */ 7827);
-const NavFolder_1 = __webpack_require__(/*! ./NavFolder */ 666);
+const NavFolder_1 = __webpack_require__(/*! ./NavFolder */ 90666);
 const NavItem_1 = __webpack_require__(/*! ./NavItem */ 8552);
-const NavStructureContext_1 = __webpack_require__(/*! ./NavStructureContext */ 3658);
-const NavItemEditor_1 = __webpack_require__(/*! ./NavItemEditor */ 3065);
-const SettingsPanel_1 = __webpack_require__(/*! ./SettingsPanel */ 2513);
-const hideSpNav_1 = __webpack_require__(/*! ../utils/hideSpNav */ 3352);
-const useNavConfig_1 = __webpack_require__(/*! ../hooks/useNavConfig */ 3054);
-const useNavData_1 = __webpack_require__(/*! ../hooks/useNavData */ 8794);
-const TopNav_module_css_1 = __webpack_require__(/*! ./TopNav.module.css */ 2411);
+const NavStructureContext_1 = __webpack_require__(/*! ./NavStructureContext */ 73658);
+const NavItemEditor_1 = __webpack_require__(/*! ./NavItemEditor */ 23065);
+const SettingsPanel_1 = __webpack_require__(/*! ./SettingsPanel */ 72513);
+const hideSpNav_1 = __webpack_require__(/*! ../utils/hideSpNav */ 53352);
+const useNavConfig_1 = __webpack_require__(/*! ../hooks/useNavConfig */ 43054);
+const useNavData_1 = __webpack_require__(/*! ../hooks/useNavData */ 88794);
+const TopNav_module_css_1 = __webpack_require__(/*! ./TopNav.module.css */ 42411);
 /**
  * Renders the main application customizer navigation.
  */
@@ -1155,7 +1155,7 @@ exports["default"] = TopNav;
 
 /***/ }),
 
-/***/ 3054:
+/***/ 43054:
 /*!************************************************************!*\
   !*** ./lib/extensions/topNavigation/hooks/useNavConfig.js ***!
   \************************************************************/
@@ -1164,10 +1164,10 @@ exports["default"] = TopNav;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.useNavConfig = void 0;
-const react_1 = __webpack_require__(/*! react */ 2650);
-const sp_1 = __webpack_require__(/*! @pnp/sp */ 7881);
-__webpack_require__(/*! @pnp/sp/webs */ 3867);
-const navTypes_1 = __webpack_require__(/*! ../types/navTypes */ 4373);
+const react_1 = __webpack_require__(/*! react */ 12650);
+const sp_1 = __webpack_require__(/*! @pnp/sp */ 87881);
+__webpack_require__(/*! @pnp/sp/webs */ 73867);
+const navTypes_1 = __webpack_require__(/*! ../types/navTypes */ 74373);
 const CONFIG_KEY = 'OrigamiNavConfig';
 function useNavConfig(context) {
     const [config, setConfig] = (0, react_1.useState)(navTypes_1.DEFAULT_NAV_CONFIG);
@@ -1227,7 +1227,7 @@ exports.useNavConfig = useNavConfig;
 
 /***/ }),
 
-/***/ 8794:
+/***/ 88794:
 /*!**********************************************************!*\
   !*** ./lib/extensions/topNavigation/hooks/useNavData.js ***!
   \**********************************************************/
@@ -1236,12 +1236,12 @@ exports.useNavConfig = useNavConfig;
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.useNavData = void 0;
-const react_1 = __webpack_require__(/*! react */ 2650);
-const sp_1 = __webpack_require__(/*! @pnp/sp */ 7881);
-__webpack_require__(/*! @pnp/sp/webs */ 3867);
-__webpack_require__(/*! @pnp/sp/lists */ 2033);
+const react_1 = __webpack_require__(/*! react */ 12650);
+const sp_1 = __webpack_require__(/*! @pnp/sp */ 87881);
+__webpack_require__(/*! @pnp/sp/webs */ 73867);
+__webpack_require__(/*! @pnp/sp/lists */ 92033);
 __webpack_require__(/*! @pnp/sp/items */ 9721);
-__webpack_require__(/*! @pnp/sp/folders */ 6267);
+__webpack_require__(/*! @pnp/sp/folders */ 86267);
 const LIST_TITLE = 'Navigation';
 function useNavData(context, sourceUrl) {
     const [folders, setFolders] = (0, react_1.useState)([]);
@@ -1355,7 +1355,7 @@ exports.useNavData = useNavData;
 
 /***/ }),
 
-/***/ 4373:
+/***/ 74373:
 /*!********************************************************!*\
   !*** ./lib/extensions/topNavigation/types/navTypes.js ***!
   \********************************************************/
@@ -1381,7 +1381,7 @@ exports.DEFAULT_NAV_CONFIG = {
 
 /***/ }),
 
-/***/ 8634:
+/***/ 48634:
 /*!**********************************************************!*\
   !*** ./lib/extensions/topNavigation/utils/colorUtils.js ***!
   \**********************************************************/
@@ -1494,7 +1494,7 @@ exports.hsvToRgb = hsvToRgb;
 
 /***/ }),
 
-/***/ 3352:
+/***/ 53352:
 /*!*********************************************************!*\
   !*** ./lib/extensions/topNavigation/utils/hideSpNav.js ***!
   \*********************************************************/
@@ -1546,7 +1546,7 @@ exports.isSpNavHidden = isSpNavHidden;
 
 /***/ }),
 
-/***/ 4726:
+/***/ 94726:
 /*!***********************************************************************************************************!*\
   !*** ./node_modules/@microsoft/sp-css-loader/node_modules/@microsoft/load-themed-styles/lib-es6/index.js ***!
   \***********************************************************************************************************/
@@ -2142,7 +2142,7 @@ function __classPrivateFieldIn(state, receiver) {
 
 /***/ }),
 
-/***/ 5514:
+/***/ 75514:
 /*!**************************************************************!*\
   !*** ./node_modules/@pnp/sp/node_modules/tslib/tslib.es6.js ***!
   \**************************************************************/
@@ -2404,13 +2404,13 @@ function __classPrivateFieldIn(state, receiver) {
 
 /***/ }),
 
-/***/ 1138:
+/***/ 91138:
 /*!****************************************!*\
   !*** external "@microsoft/decorators" ***!
   \****************************************/
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__1138__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__91138__;
 
 /***/ }),
 
@@ -2424,27 +2424,27 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__8023__;
 
 /***/ }),
 
-/***/ 2650:
+/***/ 12650:
 /*!************************!*\
   !*** external "react" ***!
   \************************/
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__2650__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__12650__;
 
 /***/ }),
 
-/***/ 2729:
+/***/ 12729:
 /*!****************************!*\
   !*** external "react-dom" ***!
   \****************************/
 /***/ ((module) => {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__2729__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__12729__;
 
 /***/ }),
 
-/***/ 4337:
+/***/ 54337:
 /*!*******************************************************!*\
   !*** ./node_modules/@pnp/core/behaviors/copy-from.js ***!
   \*******************************************************/
@@ -2453,8 +2453,8 @@ module.exports = __WEBPACK_EXTERNAL_MODULE__2729__;
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   CopyFrom: () => (/* binding */ CopyFrom)
 /* harmony export */ });
-/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util.js */ 2165);
-/* harmony import */ var _timeline_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../timeline.js */ 447);
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../util.js */ 52165);
+/* harmony import */ var _timeline_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../timeline.js */ 80447);
 
 
 /**
@@ -2502,7 +2502,7 @@ function copyObservers(source, behavior, filter) {
 
 /***/ }),
 
-/***/ 65:
+/***/ 60065:
 /*!**********************************************!*\
   !*** ./node_modules/@pnp/core/extendable.js ***!
   \**********************************************/
@@ -2512,7 +2512,7 @@ function copyObservers(source, behavior, filter) {
 /* harmony export */   extendable: () => (/* binding */ extendable)
 /* harmony export */ });
 /* unused harmony exports extend, extendFactory, disableExtensions, enableExtensions */
-/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 2165);
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 52165);
 
 let _enableExtensions = false;
 const ObjExtensionsSym = Symbol.for("PnPExt");
@@ -2662,7 +2662,7 @@ function extensionOrDefault(op, or, target, ...rest) {
 
 /***/ }),
 
-/***/ 1971:
+/***/ 31971:
 /*!*****************************************!*\
   !*** ./node_modules/@pnp/core/index.js ***!
   \*****************************************/
@@ -2693,12 +2693,12 @@ function extensionOrDefault(op, or, target, ...rest) {
 /* harmony export */   request: () => (/* reexport safe */ _moments_js__WEBPACK_IMPORTED_MODULE_2__.request),
 /* harmony export */   stringIsNullOrEmpty: () => (/* reexport safe */ _util_js__WEBPACK_IMPORTED_MODULE_1__.stringIsNullOrEmpty)
 /* harmony export */ });
-/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage.js */ 1922);
-/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util.js */ 2165);
-/* harmony import */ var _moments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moments.js */ 7955);
-/* harmony import */ var _timeline_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./timeline.js */ 447);
-/* harmony import */ var _extendable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./extendable.js */ 65);
-/* harmony import */ var _behaviors_copy_from_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./behaviors/copy-from.js */ 4337);
+/* harmony import */ var _storage_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./storage.js */ 81922);
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./util.js */ 52165);
+/* harmony import */ var _moments_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./moments.js */ 27955);
+/* harmony import */ var _timeline_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./timeline.js */ 80447);
+/* harmony import */ var _extendable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./extendable.js */ 60065);
+/* harmony import */ var _behaviors_copy_from_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./behaviors/copy-from.js */ 54337);
 
 
 
@@ -2713,7 +2713,7 @@ function extensionOrDefault(op, or, target, ...rest) {
 
 /***/ }),
 
-/***/ 7955:
+/***/ 27955:
 /*!*******************************************!*\
   !*** ./node_modules/@pnp/core/moments.js ***!
   \*******************************************/
@@ -2727,7 +2727,7 @@ function extensionOrDefault(op, or, target, ...rest) {
 /* harmony export */   reduce: () => (/* binding */ reduce),
 /* harmony export */   request: () => (/* binding */ request)
 /* harmony export */ });
-/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 2165);
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 52165);
 
 /**
  * Emits to all registered observers the supplied arguments. Any values returned by the observers are ignored
@@ -2818,7 +2818,7 @@ function lifecycle() {
 
 /***/ }),
 
-/***/ 1922:
+/***/ 81922:
 /*!*******************************************!*\
   !*** ./node_modules/@pnp/core/storage.js ***!
   \*******************************************/
@@ -2828,7 +2828,7 @@ function lifecycle() {
 /* harmony export */   PnPClientStorage: () => (/* binding */ PnPClientStorage)
 /* harmony export */ });
 /* unused harmony export PnPClientStorageWrapper */
-/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 2165);
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 52165);
 
 let storageShim;
 function getStorageShim() {
@@ -3017,7 +3017,7 @@ class PnPClientStorage {
 
 /***/ }),
 
-/***/ 447:
+/***/ 80447:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/core/timeline.js ***!
   \********************************************/
@@ -3029,8 +3029,8 @@ class PnPClientStorage {
 /* harmony export */   noInherit: () => (/* binding */ noInherit)
 /* harmony export */ });
 /* unused harmony export once */
-/* harmony import */ var _moments_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moments.js */ 7955);
-/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 2165);
+/* harmony import */ var _moments_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./moments.js */ 27955);
+/* harmony import */ var _util_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./util.js */ 52165);
 
 
 /**
@@ -3289,7 +3289,7 @@ function cloneObserverCollection(source) {
 
 /***/ }),
 
-/***/ 2165:
+/***/ 52165:
 /*!****************************************!*\
   !*** ./node_modules/@pnp/core/util.js ***!
   \****************************************/
@@ -3500,7 +3500,7 @@ function delay(ms) {
 
 /***/ }),
 
-/***/ 6399:
+/***/ 76399:
 /*!*************************************************!*\
   !*** ./node_modules/@pnp/queryable/add-prop.js ***!
   \*************************************************/
@@ -3530,7 +3530,7 @@ function addProp(target, name, factory, path) {
 
 /***/ }),
 
-/***/ 8786:
+/***/ 28786:
 /*!****************************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/browser-fetch.js ***!
   \****************************************************************/
@@ -3540,8 +3540,8 @@ function addProp(target, name, factory, path) {
 /* harmony export */   BrowserFetchWithRetry: () => (/* binding */ BrowserFetchWithRetry)
 /* harmony export */ });
 /* unused harmony export BrowserFetch */
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _parsers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parsers.js */ 5102);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _parsers_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./parsers.js */ 25102);
 
 
 function BrowserFetch(props) {
@@ -3633,16 +3633,16 @@ function BrowserFetchWithRetry(props) {
 
 /***/ }),
 
-/***/ 7395:
+/***/ 17395:
 /*!**********************************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/caching-pessimistic.js ***!
   \**********************************************************************/
 /***/ ((__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) => {
 
 /* unused harmony export CachingPessimisticRefresh */
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 /* harmony import */ var _queryable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../queryable.js */ 7111);
-/* harmony import */ var _caching_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./caching.js */ 6936);
+/* harmony import */ var _caching_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./caching.js */ 96936);
 
 
 
@@ -3695,7 +3695,7 @@ function CachingPessimisticRefresh(props) {
 
 /***/ }),
 
-/***/ 6936:
+/***/ 96936:
 /*!**********************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/caching.js ***!
   \**********************************************************/
@@ -3706,7 +3706,7 @@ function CachingPessimisticRefresh(props) {
 /* harmony export */   bindCachingCore: () => (/* binding */ bindCachingCore)
 /* harmony export */ });
 /* unused harmony exports CacheAlways, CacheKey, Caching */
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 /**
  * Behavior that forces caching for the request regardless of "method"
@@ -3813,7 +3813,7 @@ function bindCachingCore(url, init, props) {
 
 /***/ }),
 
-/***/ 238:
+/***/ 20238:
 /*!*************************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/cancelable.js ***!
   \*************************************************************/
@@ -3824,7 +3824,7 @@ function bindCachingCore(url, init, props) {
 /* harmony export */   cancelableScope: () => (/* binding */ cancelableScope)
 /* harmony export */ });
 /* unused harmony exports asCancelableScope, Cancelable */
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 /**
  * Cancelable is a fairly complex behavior as there is a lot to consider through multiple timelines. We have
@@ -4021,7 +4021,7 @@ function CancelAction(action) {
 
 /***/ }),
 
-/***/ 6046:
+/***/ 66046:
 /*!*****************************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/inject-headers.js ***!
   \*****************************************************************/
@@ -4049,7 +4049,7 @@ function InjectHeaders(headers, prepend = false) {
 
 /***/ }),
 
-/***/ 5102:
+/***/ 25102:
 /*!**********************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/parsers.js ***!
   \**********************************************************/
@@ -4066,7 +4066,7 @@ function InjectHeaders(headers, prepend = false) {
 /* harmony export */   parseODataJSON: () => (/* binding */ parseODataJSON)
 /* harmony export */ });
 /* unused harmony exports HeaderParse, JSONHeaderParse, errorCheck */
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 
 function DefaultParse() {
@@ -4168,7 +4168,7 @@ class HttpRequestError extends Error {
 
 /***/ }),
 
-/***/ 5234:
+/***/ 55234:
 /*!************************************************************!*\
   !*** ./node_modules/@pnp/queryable/behaviors/resolvers.js ***!
   \************************************************************/
@@ -4198,7 +4198,7 @@ function RejectOnError() {
 
 /***/ }),
 
-/***/ 6844:
+/***/ 76844:
 /*!**********************************************!*\
   !*** ./node_modules/@pnp/queryable/index.js ***!
   \**********************************************/
@@ -4230,19 +4230,19 @@ function RejectOnError() {
 /* harmony export */   post: () => (/* reexport safe */ _operations_js__WEBPACK_IMPORTED_MODULE_2__.post),
 /* harmony export */   queryableFactory: () => (/* reexport safe */ _queryable_factory_js__WEBPACK_IMPORTED_MODULE_4__.queryableFactory)
 /* harmony export */ });
-/* harmony import */ var _add_prop_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add-prop.js */ 6399);
-/* harmony import */ var _invokable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./invokable.js */ 4890);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 5808);
+/* harmony import */ var _add_prop_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./add-prop.js */ 76399);
+/* harmony import */ var _invokable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./invokable.js */ 34890);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 95808);
 /* harmony import */ var _queryable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./queryable.js */ 7111);
 /* harmony import */ var _queryable_factory_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./queryable-factory.js */ 2760);
-/* harmony import */ var _request_builders_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./request-builders.js */ 2837);
-/* harmony import */ var _behaviors_browser_fetch_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./behaviors/browser-fetch.js */ 8786);
-/* harmony import */ var _behaviors_caching_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./behaviors/caching.js */ 6936);
-/* harmony import */ var _behaviors_caching_pessimistic_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./behaviors/caching-pessimistic.js */ 7395);
-/* harmony import */ var _behaviors_cancelable_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./behaviors/cancelable.js */ 238);
-/* harmony import */ var _behaviors_inject_headers_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./behaviors/inject-headers.js */ 6046);
-/* harmony import */ var _behaviors_parsers_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./behaviors/parsers.js */ 5102);
-/* harmony import */ var _behaviors_resolvers_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./behaviors/resolvers.js */ 5234);
+/* harmony import */ var _request_builders_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./request-builders.js */ 82837);
+/* harmony import */ var _behaviors_browser_fetch_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./behaviors/browser-fetch.js */ 28786);
+/* harmony import */ var _behaviors_caching_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./behaviors/caching.js */ 96936);
+/* harmony import */ var _behaviors_caching_pessimistic_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./behaviors/caching-pessimistic.js */ 17395);
+/* harmony import */ var _behaviors_cancelable_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./behaviors/cancelable.js */ 20238);
+/* harmony import */ var _behaviors_inject_headers_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./behaviors/inject-headers.js */ 66046);
+/* harmony import */ var _behaviors_parsers_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./behaviors/parsers.js */ 25102);
+/* harmony import */ var _behaviors_resolvers_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./behaviors/resolvers.js */ 55234);
 
 
 
@@ -4265,7 +4265,7 @@ function RejectOnError() {
 
 /***/ }),
 
-/***/ 4890:
+/***/ 34890:
 /*!**************************************************!*\
   !*** ./node_modules/@pnp/queryable/invokable.js ***!
   \**************************************************/
@@ -4274,8 +4274,8 @@ function RejectOnError() {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   invokable: () => (/* binding */ invokable)
 /* harmony export */ });
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./operations.js */ 5808);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./operations.js */ 95808);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 
 /**
@@ -4308,7 +4308,7 @@ function invokable(invokeableAction) {
 
 /***/ }),
 
-/***/ 5808:
+/***/ 95808:
 /*!***************************************************!*\
   !*** ./node_modules/@pnp/queryable/operations.js ***!
   \***************************************************/
@@ -4381,8 +4381,8 @@ function queryableFactory(constructor) {
 /* harmony export */   Queryable: () => (/* binding */ Queryable)
 /* harmony export */ });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! tslib */ 6924);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _invokable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./invokable.js */ 4890);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _invokable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./invokable.js */ 34890);
 
 
 
@@ -4543,7 +4543,7 @@ Queryable = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
 
 /***/ }),
 
-/***/ 2837:
+/***/ 82837:
 /*!*********************************************************!*\
   !*** ./node_modules/@pnp/queryable/request-builders.js ***!
   \*********************************************************/
@@ -4553,7 +4553,7 @@ Queryable = (0,tslib__WEBPACK_IMPORTED_MODULE_2__.__decorate)([
 /* harmony export */   body: () => (/* binding */ body),
 /* harmony export */   headers: () => (/* binding */ headers)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 /**
  * takes the supplied object of type U, JSON.stringify's it, and sets it as the value of a "body" property
@@ -4576,7 +4576,7 @@ function headers(o, previous) {
 
 /***/ }),
 
-/***/ 8018:
+/***/ 18018:
 /*!******************************************!*\
   !*** ./node_modules/@pnp/sp/batching.js ***!
   \******************************************/
@@ -4586,12 +4586,12 @@ function headers(o, previous) {
 /* harmony export */   BatchNever: () => (/* binding */ BatchNever)
 /* harmony export */ });
 /* unused harmony export createBatch */
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 3820);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spqueryable.js */ 2678);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 93820);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./spqueryable.js */ 62678);
 /* harmony import */ var _fi_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./fi.js */ 6553);
-/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./webs/types.js */ 3169);
+/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./webs/types.js */ 93169);
 
 
 
@@ -4946,7 +4946,7 @@ function parseResponse(body) {
 
 /***/ }),
 
-/***/ 7140:
+/***/ 97140:
 /*!****************************************************!*\
   !*** ./node_modules/@pnp/sp/behaviors/defaults.js ***!
   \****************************************************/
@@ -4956,8 +4956,8 @@ function parseResponse(body) {
 /* harmony export */   DefaultHeaders: () => (/* binding */ DefaultHeaders),
 /* harmony export */   DefaultInit: () => (/* binding */ DefaultInit)
 /* harmony export */ });
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _telemetry_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./telemetry.js */ 2630);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _telemetry_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./telemetry.js */ 42630);
 
 
 function DefaultInit() {
@@ -4985,7 +4985,7 @@ function DefaultHeaders() {
 
 /***/ }),
 
-/***/ 670:
+/***/ 40670:
 /*!**********************************************************!*\
   !*** ./node_modules/@pnp/sp/behaviors/request-digest.js ***!
   \**********************************************************/
@@ -4994,12 +4994,12 @@ function DefaultHeaders() {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   RequestDigest: () => (/* binding */ RequestDigest)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 2997);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operations.js */ 3820);
-/* harmony import */ var _batching_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../batching.js */ 8018);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 22997);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operations.js */ 93820);
+/* harmony import */ var _batching_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../batching.js */ 18018);
 
 
 
@@ -5060,7 +5060,7 @@ function RequestDigest(hook) {
 
 /***/ }),
 
-/***/ 6793:
+/***/ 76793:
 /*!*****************************************************!*\
   !*** ./node_modules/@pnp/sp/behaviors/spbrowser.js ***!
   \*****************************************************/
@@ -5069,10 +5069,10 @@ function RequestDigest(hook) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   SPBrowser: () => (/* binding */ SPBrowser)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _defaults_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./defaults.js */ 7140);
-/* harmony import */ var _request_digest_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./request-digest.js */ 670);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _defaults_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./defaults.js */ 97140);
+/* harmony import */ var _request_digest_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./request-digest.js */ 40670);
 
 
 
@@ -5099,7 +5099,7 @@ function SPBrowser(props) {
 
 /***/ }),
 
-/***/ 4243:
+/***/ 94243:
 /*!************************************************!*\
   !*** ./node_modules/@pnp/sp/behaviors/spfx.js ***!
   \************************************************/
@@ -5109,10 +5109,10 @@ function SPBrowser(props) {
 /* harmony export */   SPFx: () => (/* binding */ SPFx),
 /* harmony export */   SPFxToken: () => (/* binding */ SPFxToken)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _defaults_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./defaults.js */ 7140);
-/* harmony import */ var _request_digest_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./request-digest.js */ 670);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _defaults_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./defaults.js */ 97140);
+/* harmony import */ var _request_digest_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./request-digest.js */ 40670);
 
 
 
@@ -5161,7 +5161,7 @@ function SPFx(context) {
 
 /***/ }),
 
-/***/ 2630:
+/***/ 42630:
 /*!*****************************************************!*\
   !*** ./node_modules/@pnp/sp/behaviors/telemetry.js ***!
   \*****************************************************/
@@ -5196,16 +5196,16 @@ function Telemetry() {
 
 /***/ }),
 
-/***/ 1734:
+/***/ 11734:
 /*!****************************************************!*\
   !*** ./node_modules/@pnp/sp/context-info/index.js ***!
   \****************************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../operations.js */ 3820);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 2997);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../operations.js */ 93820);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 22997);
 
 
 
@@ -5225,7 +5225,7 @@ _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__._SPQueryable.prototype.getContextIn
 
 /***/ }),
 
-/***/ 6540:
+/***/ 46540:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/sp/decorators.js ***!
   \********************************************/
@@ -5263,7 +5263,7 @@ function defaultPath(path) {
 /* harmony export */   SPFI: () => (/* binding */ SPFI),
 /* harmony export */   spfi: () => (/* binding */ spfi)
 /* harmony export */ });
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spqueryable.js */ 2678);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spqueryable.js */ 62678);
 
 class SPFI {
     /**
@@ -5302,15 +5302,15 @@ function spfi(root = "") {
 
 /***/ }),
 
-/***/ 1872:
+/***/ 61872:
 /*!**********************************************!*\
   !*** ./node_modules/@pnp/sp/files/folder.js ***!
   \**********************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _folders_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../folders/types.js */ 187);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 242);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _folders_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../folders/types.js */ 70187);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 80242);
 
 
 
@@ -5338,10 +5338,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   fileFromPath: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_3__.fileFromPath),
 /* harmony export */   fileFromServerRelativePath: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_3__.fileFromServerRelativePath)
 /* harmony export */ });
-/* harmony import */ var _folder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./folder.js */ 1872);
-/* harmony import */ var _item_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item.js */ 6401);
-/* harmony import */ var _web_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web.js */ 6617);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types.js */ 242);
+/* harmony import */ var _folder_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./folder.js */ 61872);
+/* harmony import */ var _item_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./item.js */ 86401);
+/* harmony import */ var _web_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web.js */ 36617);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types.js */ 80242);
 
 
 
@@ -5350,15 +5350,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 6401:
+/***/ 86401:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/sp/files/item.js ***!
   \********************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _items_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../items/types.js */ 132);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 242);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _items_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../items/types.js */ 10132);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 80242);
 
 
 
@@ -5367,7 +5367,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 3645:
+/***/ 53645:
 /*!*****************************************************!*\
   !*** ./node_modules/@pnp/sp/files/readable-file.js ***!
   \*****************************************************/
@@ -5376,8 +5376,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   ReadableFile: () => (/* binding */ ReadableFile)
 /* harmony export */ });
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
 
 
 class ReadableFile extends _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__._SPInstance {
@@ -5415,7 +5415,7 @@ class ReadableFile extends _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__._SPInsta
 
 /***/ }),
 
-/***/ 242:
+/***/ 80242:
 /*!*********************************************!*\
   !*** ./node_modules/@pnp/sp/files/types.js ***!
   \*********************************************/
@@ -5434,20 +5434,20 @@ class ReadableFile extends _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__._SPInsta
 /* harmony export */   fileFromServerRelativePath: () => (/* binding */ fileFromServerRelativePath)
 /* harmony export */ });
 /* unused harmony exports _Files, _File, _Versions, _Version */
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! tslib */ 5514);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! tslib */ 75514);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
 /* harmony import */ var _items_index_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../items/index.js */ 9721);
-/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 905);
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../decorators.js */ 6540);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../operations.js */ 3820);
-/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 2997);
-/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/to-resource-path.js */ 4259);
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 4729);
-/* harmony import */ var _readable_file_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./readable-file.js */ 3645);
-/* harmony import */ var _context_info_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../context-info/index.js */ 1734);
-/* harmony import */ var _batching_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../batching.js */ 8018);
+/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 70905);
+/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../decorators.js */ 46540);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../operations.js */ 93820);
+/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 22997);
+/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ../utils/to-resource-path.js */ 84259);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 94729);
+/* harmony import */ var _readable_file_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./readable-file.js */ 53645);
+/* harmony import */ var _context_info_index_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../context-info/index.js */ 11734);
+/* harmony import */ var _batching_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../batching.js */ 18018);
 
 
 
@@ -6036,15 +6036,15 @@ var TemplateFileType;
 
 /***/ }),
 
-/***/ 6617:
+/***/ 36617:
 /*!*******************************************!*\
   !*** ./node_modules/@pnp/sp/files/web.js ***!
   \*******************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 4729);
-/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../webs/types.js */ 3169);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 242);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 94729);
+/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../webs/types.js */ 93169);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 80242);
 
 
 
@@ -6061,7 +6061,7 @@ _webs_types_js__WEBPACK_IMPORTED_MODULE_1__._Web.prototype.getFileByUrl = functi
 
 /***/ }),
 
-/***/ 6267:
+/***/ 86267:
 /*!***********************************************!*\
   !*** ./node_modules/@pnp/sp/folders/index.js ***!
   \***********************************************/
@@ -6075,10 +6075,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   folderFromPath: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_3__.folderFromPath),
 /* harmony export */   folderFromServerRelativePath: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_3__.folderFromServerRelativePath)
 /* harmony export */ });
-/* harmony import */ var _item_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item.js */ 1042);
+/* harmony import */ var _item_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./item.js */ 41042);
 /* harmony import */ var _list_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./list.js */ 6488);
-/* harmony import */ var _web_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web.js */ 6536);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types.js */ 187);
+/* harmony import */ var _web_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./web.js */ 56536);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./types.js */ 70187);
 
 
 
@@ -6087,15 +6087,15 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 1042:
+/***/ 41042:
 /*!**********************************************!*\
   !*** ./node_modules/@pnp/sp/folders/item.js ***!
   \**********************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _items_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../items/types.js */ 132);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 187);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _items_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../items/types.js */ 10132);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 70187);
 
 
 
@@ -6110,9 +6110,9 @@ __webpack_require__.r(__webpack_exports__);
   \**********************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _lists_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lists/types.js */ 9706);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 187);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _lists_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lists/types.js */ 29706);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 70187);
 
 
 
@@ -6121,7 +6121,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 187:
+/***/ 70187:
 /*!***********************************************!*\
   !*** ./node_modules/@pnp/sp/folders/types.js ***!
   \***********************************************/
@@ -6136,19 +6136,19 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   folderFromServerRelativePath: () => (/* binding */ folderFromServerRelativePath)
 /* harmony export */ });
 /* unused harmony export _Folders */
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! tslib */ 5514);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 905);
-/* harmony import */ var _items_types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../items/types.js */ 132);
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../decorators.js */ 6540);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../operations.js */ 3820);
-/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 2997);
-/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/to-resource-path.js */ 4259);
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 4729);
-/* harmony import */ var _context_info_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../context-info/index.js */ 1734);
-/* harmony import */ var _batching_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../batching.js */ 8018);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! tslib */ 75514);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 70905);
+/* harmony import */ var _items_types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../items/types.js */ 10132);
+/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../decorators.js */ 46540);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../operations.js */ 93820);
+/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 22997);
+/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ../utils/to-resource-path.js */ 84259);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 94729);
+/* harmony import */ var _context_info_index_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../context-info/index.js */ 11734);
+/* harmony import */ var _batching_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../batching.js */ 18018);
 
 
 
@@ -6399,15 +6399,15 @@ async function folderFromPath(base, path) {
 
 /***/ }),
 
-/***/ 6536:
+/***/ 56536:
 /*!*********************************************!*\
   !*** ./node_modules/@pnp/sp/folders/web.js ***!
   \*********************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../webs/types.js */ 3169);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 187);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../webs/types.js */ 93169);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 70187);
 
 
 
@@ -6423,7 +6423,7 @@ _webs_types_js__WEBPACK_IMPORTED_MODULE_1__._Web.prototype.getFolderById = funct
 
 /***/ }),
 
-/***/ 7881:
+/***/ 87881:
 /*!***************************************!*\
   !*** ./node_modules/@pnp/sp/index.js ***!
   \***************************************/
@@ -6468,21 +6468,21 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   stripInvalidFileFolderChars: () => (/* reexport safe */ _utils_file_names_js__WEBPACK_IMPORTED_MODULE_6__.stripInvalidFileFolderChars),
 /* harmony export */   toResourcePath: () => (/* reexport safe */ _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_8__.toResourcePath)
 /* harmony export */ });
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spqueryable.js */ 2678);
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./decorators.js */ 6540);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 3820);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./spqueryable.js */ 62678);
+/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./decorators.js */ 46540);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 93820);
 /* harmony import */ var _fi_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./fi.js */ 6553);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./types.js */ 8713);
-/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/extract-web-url.js */ 2997);
-/* harmony import */ var _utils_file_names_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/file-names.js */ 4915);
-/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/odata-url-from.js */ 905);
-/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/to-resource-path.js */ 4259);
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/encode-path-str.js */ 4729);
-/* harmony import */ var _behaviors_defaults_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./behaviors/defaults.js */ 7140);
-/* harmony import */ var _behaviors_telemetry_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./behaviors/telemetry.js */ 2630);
-/* harmony import */ var _behaviors_request_digest_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./behaviors/request-digest.js */ 670);
-/* harmony import */ var _behaviors_spbrowser_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./behaviors/spbrowser.js */ 6793);
-/* harmony import */ var _behaviors_spfx_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./behaviors/spfx.js */ 4243);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./types.js */ 48713);
+/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./utils/extract-web-url.js */ 22997);
+/* harmony import */ var _utils_file_names_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./utils/file-names.js */ 74915);
+/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./utils/odata-url-from.js */ 70905);
+/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./utils/to-resource-path.js */ 84259);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./utils/encode-path-str.js */ 94729);
+/* harmony import */ var _behaviors_defaults_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./behaviors/defaults.js */ 97140);
+/* harmony import */ var _behaviors_telemetry_js__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./behaviors/telemetry.js */ 42630);
+/* harmony import */ var _behaviors_request_digest_js__WEBPACK_IMPORTED_MODULE_12__ = __webpack_require__(/*! ./behaviors/request-digest.js */ 40670);
+/* harmony import */ var _behaviors_spbrowser_js__WEBPACK_IMPORTED_MODULE_13__ = __webpack_require__(/*! ./behaviors/spbrowser.js */ 76793);
+/* harmony import */ var _behaviors_spfx_js__WEBPACK_IMPORTED_MODULE_14__ = __webpack_require__(/*! ./behaviors/spfx.js */ 94243);
 
 
 
@@ -6516,23 +6516,23 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Items: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_1__.Items),
 /* harmony export */   PagedItemCollection: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_1__.PagedItemCollection)
 /* harmony export */ });
-/* harmony import */ var _list_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list.js */ 5685);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types.js */ 132);
+/* harmony import */ var _list_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./list.js */ 15685);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types.js */ 10132);
 
 
 
 
 /***/ }),
 
-/***/ 5685:
+/***/ 15685:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/sp/items/list.js ***!
   \********************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _lists_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lists/types.js */ 9706);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 132);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _lists_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../lists/types.js */ 29706);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 10132);
 
 
 
@@ -6541,7 +6541,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ 132:
+/***/ 10132:
 /*!*********************************************!*\
   !*** ./node_modules/@pnp/sp/items/types.js ***!
   \*********************************************/
@@ -6556,14 +6556,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   _Item: () => (/* binding */ _Item)
 /* harmony export */ });
 /* unused harmony exports _Items, _ItemVersions, _ItemVersion */
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 5514);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_sp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @pnp/sp */ 7881);
-/* harmony import */ var _lists_types_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lists/types.js */ 9706);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../decorators.js */ 6540);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../operations.js */ 3820);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 75514);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_sp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @pnp/sp */ 87881);
+/* harmony import */ var _lists_types_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../lists/types.js */ 29706);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../decorators.js */ 46540);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../operations.js */ 93820);
 
 
 
@@ -6863,7 +6863,7 @@ function ItemUpdatedParser() {
 
 /***/ }),
 
-/***/ 2033:
+/***/ 92033:
 /*!*********************************************!*\
   !*** ./node_modules/@pnp/sp/lists/index.js ***!
   \*********************************************/
@@ -6876,15 +6876,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Lists: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_1__.Lists),
 /* harmony export */   RenderListDataOptions: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_1__.RenderListDataOptions)
 /* harmony export */ });
-/* harmony import */ var _web_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web.js */ 2519);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types.js */ 9706);
+/* harmony import */ var _web_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./web.js */ 42519);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./types.js */ 29706);
 
 
 
 
 /***/ }),
 
-/***/ 9706:
+/***/ 29706:
 /*!*********************************************!*\
   !*** ./node_modules/@pnp/sp/lists/types.js ***!
   \*********************************************/
@@ -6898,15 +6898,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   _List: () => (/* binding */ _List)
 /* harmony export */ });
 /* unused harmony export _Lists */
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 5514);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 905);
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../decorators.js */ 6540);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operations.js */ 3820);
-/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/to-resource-path.js */ 4259);
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 4729);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! tslib */ 75514);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 70905);
+/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../decorators.js */ 46540);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../operations.js */ 93820);
+/* harmony import */ var _utils_to_resource_path_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../utils/to-resource-path.js */ 84259);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 94729);
 
 
 
@@ -7264,18 +7264,18 @@ var ControlMode;
 
 /***/ }),
 
-/***/ 2519:
+/***/ 42519:
 /*!*******************************************!*\
   !*** ./node_modules/@pnp/sp/lists/web.js ***!
   \*******************************************/
 /***/ ((__unused_webpack___webpack_module__, __unused_webpack___webpack_exports__, __webpack_require__) => {
 
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../webs/types.js */ 3169);
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 9706);
-/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 905);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 4729);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _webs_types_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../webs/types.js */ 93169);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./types.js */ 29706);
+/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 70905);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 94729);
 
 
 
@@ -7297,7 +7297,7 @@ _webs_types_js__WEBPACK_IMPORTED_MODULE_1__._Web.prototype.getCatalog = async fu
 
 /***/ }),
 
-/***/ 3820:
+/***/ 93820:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/sp/operations.js ***!
   \********************************************/
@@ -7312,7 +7312,7 @@ _webs_types_js__WEBPACK_IMPORTED_MODULE_1__._Web.prototype.getCatalog = async fu
 /* harmony export */   spPostDeleteETag: () => (/* binding */ spPostDeleteETag),
 /* harmony export */   spPostMerge: () => (/* binding */ spPostMerge)
 /* harmony export */ });
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
 
 const spGet = (o, init) => {
     return (0,_pnp_queryable__WEBPACK_IMPORTED_MODULE_0__.op)(o, _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__.get, init);
@@ -7339,7 +7339,7 @@ const spPatch = (o, init) => (0,_pnp_queryable__WEBPACK_IMPORTED_MODULE_0__.op)(
 
 /***/ }),
 
-/***/ 2678:
+/***/ 62678:
 /*!*********************************************!*\
   !*** ./node_modules/@pnp/sp/spqueryable.js ***!
   \*********************************************/
@@ -7356,9 +7356,9 @@ const spPatch = (o, init) => (0,_pnp_queryable__WEBPACK_IMPORTED_MODULE_0__.op)(
 /* harmony export */   deleteableWithETag: () => (/* binding */ deleteableWithETag),
 /* harmony export */   spInvokableFactory: () => (/* binding */ spInvokableFactory)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 3820);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./operations.js */ 93820);
 
 
 
@@ -7539,7 +7539,7 @@ function deleteableWithETag() {
 
 /***/ }),
 
-/***/ 8713:
+/***/ 48713:
 /*!***************************************!*\
   !*** ./node_modules/@pnp/sp/types.js ***!
   \***************************************/
@@ -7635,7 +7635,7 @@ var PageType;
 
 /***/ }),
 
-/***/ 4729:
+/***/ 94729:
 /*!*******************************************************!*\
   !*** ./node_modules/@pnp/sp/utils/encode-path-str.js ***!
   \*******************************************************/
@@ -7644,7 +7644,7 @@ var PageType;
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   encodePath: () => (/* binding */ encodePath)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 /**
  * Encodes path portions of SharePoint urls such as decodedUrl=`encodePath(pathStr)`
@@ -7673,7 +7673,7 @@ function encodePath(value) {
 
 /***/ }),
 
-/***/ 2997:
+/***/ 22997:
 /*!*******************************************************!*\
   !*** ./node_modules/@pnp/sp/utils/extract-web-url.js ***!
   \*******************************************************/
@@ -7682,7 +7682,7 @@ function encodePath(value) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   extractWebUrl: () => (/* binding */ extractWebUrl)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
 
 function extractWebUrl(candidateUrl) {
     if ((0,_pnp_core__WEBPACK_IMPORTED_MODULE_0__.stringIsNullOrEmpty)(candidateUrl)) {
@@ -7702,7 +7702,7 @@ function extractWebUrl(candidateUrl) {
 
 /***/ }),
 
-/***/ 4915:
+/***/ 74915:
 /*!**************************************************!*\
   !*** ./node_modules/@pnp/sp/utils/file-names.js ***!
   \**************************************************/
@@ -7751,7 +7751,7 @@ function stripInvalidFileFolderChars(input, replacer = "", onPremise = false) {
 
 /***/ }),
 
-/***/ 905:
+/***/ 70905:
 /*!******************************************************!*\
   !*** ./node_modules/@pnp/sp/utils/odata-url-from.js ***!
   \******************************************************/
@@ -7760,8 +7760,8 @@ function stripInvalidFileFolderChars(input, replacer = "", onPremise = false) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   odataUrlFrom: () => (/* binding */ odataUrlFrom)
 /* harmony export */ });
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _extract_web_url_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./extract-web-url.js */ 2997);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _extract_web_url_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./extract-web-url.js */ 22997);
 
 
 function odataUrlFrom(candidate) {
@@ -7802,7 +7802,7 @@ function odataUrlFrom(candidate) {
 
 /***/ }),
 
-/***/ 4259:
+/***/ 84259:
 /*!********************************************************!*\
   !*** ./node_modules/@pnp/sp/utils/to-resource-path.js ***!
   \********************************************************/
@@ -7820,7 +7820,7 @@ function toResourcePath(url) {
 
 /***/ }),
 
-/***/ 3867:
+/***/ 73867:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/sp/webs/index.js ***!
   \********************************************/
@@ -7831,7 +7831,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   Web: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_0__.Web),
 /* harmony export */   Webs: () => (/* reexport safe */ _types_js__WEBPACK_IMPORTED_MODULE_0__.Webs)
 /* harmony export */ });
-/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ 3169);
+/* harmony import */ var _types_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./types.js */ 93169);
 /* harmony import */ var _fi_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../fi.js */ 6553);
 
 
@@ -7847,7 +7847,7 @@ Reflect.defineProperty(_fi_js__WEBPACK_IMPORTED_MODULE_1__.SPFI.prototype, "web"
 
 /***/ }),
 
-/***/ 3169:
+/***/ 93169:
 /*!********************************************!*\
   !*** ./node_modules/@pnp/sp/webs/types.js ***!
   \********************************************/
@@ -7859,15 +7859,15 @@ Reflect.defineProperty(_fi_js__WEBPACK_IMPORTED_MODULE_1__.SPFI.prototype, "web"
 /* harmony export */   _Web: () => (/* binding */ _Web)
 /* harmony export */ });
 /* unused harmony export _Webs */
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 5514);
-/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 6844);
-/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../spqueryable.js */ 2678);
-/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../decorators.js */ 6540);
-/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 905);
-/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../operations.js */ 3820);
-/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 2997);
-/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @pnp/core */ 1971);
-/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 4729);
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! tslib */ 75514);
+/* harmony import */ var _pnp_queryable__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @pnp/queryable */ 76844);
+/* harmony import */ var _spqueryable_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../spqueryable.js */ 62678);
+/* harmony import */ var _decorators_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../decorators.js */ 46540);
+/* harmony import */ var _utils_odata_url_from_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../utils/odata-url-from.js */ 70905);
+/* harmony import */ var _operations_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../operations.js */ 93820);
+/* harmony import */ var _utils_extract_web_url_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../utils/extract-web-url.js */ 22997);
+/* harmony import */ var _pnp_core__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! @pnp/core */ 31971);
+/* harmony import */ var _utils_encode_path_str_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../utils/encode-path-str.js */ 94729);
 
 
 
@@ -8168,7 +8168,7 @@ const Web = (0,_spqueryable_js__WEBPACK_IMPORTED_MODULE_1__.spInvokableFactory)(
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module is referenced by other modules so it can't be inlined
-/******/ 	var __webpack_exports__ = __webpack_require__(1188);
+/******/ 	var __webpack_exports__ = __webpack_require__(81188);
 /******/ 	
 /******/ 	return __webpack_exports__;
 /******/ })()
